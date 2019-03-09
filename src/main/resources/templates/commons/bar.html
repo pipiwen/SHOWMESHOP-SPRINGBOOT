@@ -1,0 +1,95 @@
+<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org"><!--//导入thymeleaf命名空间-->
+<head>
+    <meta charset="UTF-8">
+    <title>bar</title>
+</head>
+<body>
+<header id="header-area" class="fixed-top sticky-header" th:fragment="topbar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header-content-wrapper d-flex align-items-center">
+                    <div class="header-left-area d-flex align-items-center">
+                        <!-- Start Logo Area -->
+                        <div class="logo-area">
+                            <a href="/index.html"><img src="http://demo.devitems.com/veera/veera/assets/img/logo.svg" alt="Logo"/></a>
+                        </div>
+                        <!-- End Logo Area -->
+
+                        <!-- Start Menu Icon -->
+                        <div class="menu-icon-wrap">
+                            <button class="menu-icon-bar modalActive" data-mfp-src="#left-offside-popup"><i class="dl-icon-menu5"></i></button>
+                        </div>
+                        <!-- End Menu Icon -->
+                    </div>
+
+                    <div class="header-mainmenu-area d-none d-lg-block">
+                        <!-- Start Main Menu -->
+                        <nav id="mainmenu-wrap">
+                            <ul class="nav mainmenu justify-content-center">
+                                <li class="dropdown-show"><a class="current" href="/clothes/index">Home</a>
+                                </li>
+                                <li class="dropdown-show"><a href="#">Pages</a>
+                                    <ul class="dropdown-nav">
+                                        <li><a href="/pages/coming">Coming Soon</a></li>
+                                        <li><a href="/pages/faq">Faq</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-show mega-fullwidth"><a href="/shop/fullWide">Shop</a>
+                                    <ul class="mega-menu-wrap dropdown-nav d-flex">
+                                        <li class="mega-menu-item"><a href="/shop/fullWide" class="mega-item-title">Shop Pages</a>
+                                            <ul>
+                                                <li><a href="/shop/fullWide">Shop Full Wide</a></li>
+                                                <li><a href="/shop/collection">Shop by Collections</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="mega-menu-item"><a href="/shop/configurable" class="mega-item-title">Product Pages</a>
+                                            <ul>
+                                                <li><a href="/shop/configurable">Product Configurable</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="mega-menu-item"><a href="#" class="mega-item-title">eCommerce Pages</a>
+                                            <ul>
+                                                <li><a href="/commerce/account">My Account</a></li>
+                                                <li><a href="/commerce/cart">Shopping Cart</a></li>
+                                                <li><a href="/commerce/checkOut">Check Out</a></li>
+                                                <li><a href="/commerce/wishList">Wishlist</a></li>
+                                                <li><a href="/commerce/compare">Compare</a></li>
+                                                <li><a href="/commerce/tracking">Tracking Order</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-show"><a href="/blog/contact">Blog</a>
+                                </li>
+                                <li><a href="/blog/contact">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <!-- End Main Menu -->
+                    </div>
+
+                    <div class="header-right-area d-flex justify-content-end align-items-center">
+                        <button class="search-icon animate-modal-popup" data-mfp-src="#search-box-popup"><i class="dl-icon-search1"></i></button>
+                        <ul class="user-area">
+                            <li class="dropdown-show">
+                                <button><i class="fa fa-user"></i></button>
+                                <ul class="dropdown-nav">
+                                    <li><a href="/commerce/account">My Account</a></li>
+                                    <li><a href="/commerce/wishList">Wishlist</a></li>
+                                    <li><a href="/commerce/compare">Compare</a></li>
+                                    <li><a href="/commerce/account">Lost Password</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <button class="mini-cart-icon modalActive" data-mfp-src="#miniCart-popup">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="cart-count">3</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</body>
+</html>

@@ -1,0 +1,730 @@
+﻿<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <title>Shopping Cart :: Veera - Multipurpose eCommerce Bootstrap 4 Template</title>
+
+        <!--=== Favicon ===-->
+    <link rel="shortcut icon" href="http://demo.devitems.com/veera/veera/assets/img/favicon.ico" type="image/x-icon"/>
+
+    <!--== Google Fonts ==-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+
+
+    <!--=== Revolution Slider CSS ===-->
+    <link href="/assets/css/revslider/settings.css" rel="stylesheet">
+
+    <!--=== Bootstrap CSS ===-->
+    <link href="/assets/css/vendor/bootstrap.min.css" rel="stylesheet">
+    <!--=== Font-Awesome CSS ===-->
+    <link href="/assets/css/vendor/font-awesome.css" rel="stylesheet">
+    <!--=== Dl Icon CSS ===-->
+    <link href="/assets/css/vendor/dl-icon.css" rel="stylesheet">
+    <!--=== Plugins CSS ===-->
+    <link href="/assets/css/plugins.css" rel="stylesheet">
+    <!--=== Helper CSS ===-->
+    <link href="/assets/css/helper.min.css" rel="stylesheet">
+    <!--=== Main Style CSS ===-->
+    <link href="/assets/css/style.css" rel="stylesheet">
+    
+    <!-- Modernizer JS -->
+    <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="preloader-active">
+<!--== Start PreLoader Wrap ==-->
+<div class="preloader-area-wrap">
+    <div class="spinner d-flex justify-content-center align-items-center h-100">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</div>
+<!--== End PreLoader Wrap ==-->
+
+<!--== Start Header Area ===-->
+<div th:replace="commons/bar :: topbar"></div><!--引入头部bar-->
+
+<!-- Start Page Header Wrapper -->
+<div class="page-header-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="page-header-content">
+                    <h2>Shopping Cart</h2>
+                    <nav class="page-breadcrumb">
+                        <ul class="d-flex justify-content-center">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="shop.html" class="active">Cart</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Header Wrapper -->
+
+<!--== Start Cart Page Wrapper ==-->
+<div id="cart-page-wrapper" class="pt-86 pt-md-56 pt-sm-46 pb-50 pb-md-20 pb-sm-10">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="shopping-cart-list-area">
+                    <div class="shopping-cart-table table-responsive">
+                        <table class="table table-bordered text-center">
+                            <thead>
+                                <tr>
+                                    <th>Products</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td class="product-list">
+                                        <div class="cart-product-item d-flex align-items-center">
+                                            <div class="remove-icon">
+                                                <button><i class="fa fa-trash-o"></i></button>
+                                            </div>
+                                            <a href="single-product-sticky.html" class="product-thumb">
+                                                <img src="/assets/img/products/prod-1-1.jpg" alt="Product"/>
+                                            </a>
+                                            <a href="single-product-tab-left.html" class="product-name">Metallic cotton
+                                                dress</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="price">$29.99</span>
+                                    </td>
+                                    <td>
+                                        <div class="pro-qty">
+                                            <input type="text" class="quantity" value="1"/>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="price">$29.99</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="product-list">
+                                        <div class="cart-product-item d-flex align-items-center">
+                                            <div class="remove-icon">
+                                                <button><i class="fa fa-trash-o"></i></button>
+                                            </div>
+                                            <a href="single-product-sticky.html" class="product-thumb">
+                                                <img src="/assets/img/products/prod-1-2.jpg" alt="Product"/>
+                                            </a>
+                                            <a href="single-product-tab-left.html" class="product-name">Open-knit
+                                                sweater</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="price">$39.99</span>
+                                    </td>
+                                    <td>
+                                        <div class="pro-qty">
+                                            <input type="text" class="quantity" value="1"/>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="price">$39.99</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="product-list">
+                                        <div class="cart-product-item d-flex align-items-center">
+                                            <div class="remove-icon">
+                                                <button><i class="fa fa-trash-o"></i></button>
+                                            </div>
+                                            <a href="single-product-sticky.html" class="product-thumb">
+                                                <img src="/assets/img/products/prod-2-1.jpg" alt="Product"/>
+                                            </a>
+                                            <a href="single-product-tab-left.html" class="product-name">Metallic cotton
+                                                dress</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="price">$29.99</span>
+                                    </td>
+                                    <td>
+                                        <div class="pro-qty">
+                                            <input type="text" class="quantity" value="1"/>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="price">$29.99</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="product-list">
+                                        <div class="cart-product-item d-flex align-items-center">
+                                            <div class="remove-icon">
+                                                <button><i class="fa fa-trash-o"></i></button>
+                                            </div>
+                                            <a href="single-product-sticky.html" class="product-thumb">
+                                                <img src="/assets/img/products/prod-2-2.jpg" alt="Product"/>
+                                            </a>
+                                            <a href="single-product-tab-left.html" class="product-name">Open-knit
+                                                sweater</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="price">$39.99</span>
+                                    </td>
+                                    <td>
+                                        <div class="pro-qty">
+                                            <input type="text" class="quantity" value="1"/>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="price">$39.99</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="product-list">
+                                        <div class="cart-product-item d-flex align-items-center">
+                                            <div class="remove-icon">
+                                                <button><i class="fa fa-trash-o"></i></button>
+                                            </div>
+                                            <a href="single-product-sticky.html" class="product-thumb">
+                                                <img src="/assets/img/products/prod-3-1.jpg" alt="Product"/>
+                                            </a>
+                                            <a href="single-product-tab-left.html" class="product-name">Metallic cotton
+                                                dress</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="price">$29.99</span>
+                                    </td>
+                                    <td>
+                                        <div class="pro-qty">
+                                            <input type="text" class="quantity" value="1"/>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="price">$29.99</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="product-list">
+                                        <div class="cart-product-item d-flex align-items-center">
+                                            <div class="remove-icon">
+                                                <button><i class="fa fa-trash-o"></i></button>
+                                            </div>
+                                            <a href="single-product-sticky.html" class="product-thumb">
+                                                <img src="/assets/img/products/prod-3-2.jpg" alt="Product"/>
+                                            </a>
+                                            <a href="single-product-tab-left.html" class="product-name">Open-knit
+                                                sweater</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="price">$39.99</span>
+                                    </td>
+                                    <td>
+                                        <div class="pro-qty">
+                                            <input type="text" class="quantity" value="1"/>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="price">$39.99</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="product-list">
+                                        <div class="cart-product-item d-flex align-items-center">
+                                            <div class="remove-icon">
+                                                <button><i class="fa fa-trash-o"></i></button>
+                                            </div>
+                                            <a href="single-product-sticky.html" class="product-thumb">
+                                                <img src="/assets/img/products/prod-4-2.jpg" alt="Product"/>
+                                            </a>
+                                            <a href="single-product-tab-left.html" class="product-name">Open-knit
+                                                sweater</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="price">$39.99</span>
+                                    </td>
+                                    <td>
+                                        <div class="pro-qty">
+                                            <input type="text" class="quantity" value="1"/>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="price">$39.99</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="cart-coupon-update-area d-sm-flex justify-content-between align-items-center">
+                        <div class="coupon-form-wrap">
+                            <form action="#" method="post">
+                                <input type="text" placeholder="Coupon Code"/>
+                                <button class="btn-apply">Apply Button</button>
+                            </form>
+                        </div>
+
+                        <div class="cart-update-buttons mt-xs-14">
+                            <button class="btn-clear-cart">Clear Cart</button>
+                            <button class="btn-update-cart">Update Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <!-- Cart Calculate Area -->
+                <div class="cart-calculate-area mt-sm-30 mt-md-30">
+                    <h5 class="cal-title">Cart Totals</h5>
+
+                    <div class="cart-cal-table table-responsive">
+                        <table class="table table-borderless">
+                            <tr class="cart-sub-total">
+                                <th>Subtotal</th>
+                                <td>$289.89</td>
+                            </tr>
+                            <tr class="shipping">
+                                <th>Shipping</th>
+                                <td>
+                                    <ul class="shipping-method">
+                                        <li>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="flat_shipping" name="shipping_method" class="custom-control-input" checked />
+                                                <label class="custom-control-label" for="flat_shipping">Flat Rate : $10</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="free_shipping" name="shipping_method" class="custom-control-input" />
+                                                <label class="custom-control-label" for="free_shipping">Free Shipping</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="cod_shipping" name="shipping_method" class="custom-control-input" />
+                                                <label class="custom-control-label" for="cod_shipping">Cash on Delivery</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="order-total">
+                                <th>Total</th>
+                                <td><b>$299.93</b></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="proceed-checkout-btn">
+                        <a href="checkout.html" class="btn btn-full btn-black">Proceed to Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--== End Cart Page Wrapper ==-->
+
+<!--== Start Footer Section ===-->
+<footer id="footer-area">
+    <!-- Start Footer Widget Area -->
+    <div class="footer-widget-area pt-40 pb-28">
+        <div class="container">
+            <div class="footer-widget-content">
+                <div class="row">
+                    <!-- Start Footer Widget Item -->
+                    <div class="col-md-12 col-lg-3">
+                        <div class="footer-widget-item-wrap">
+                            <div class="widget-body">
+                                <div class="about-text pt-38 pt-sm-0 pt-md-0">
+                                    <a href="index.html"><img src="http://demo.devitems.com/veera/veera/assets/img/logo.svg" alt="Logo"/></a>
+                                    <p>Pellentesque mollis nec orci id tincidunt. Sed mollis risus eu nisi aliquet, sit
+                                        amet fermentum justo dapibus.</p>
+                                    <p class="d-none d-md-block d-lg-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi asperiores aspernatur consectetur distinctio eius enim eum fuga incidunt maiores molestias nihil, odio reiciendis sed. Architecto iure nihil tempora veniam voluptate!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer Widget Item -->
+
+                    <!-- Start Footer Widget Item -->
+                    <div class="col-sm-3 col-lg-2">
+                        <div class="footer-widget-item-wrap">
+                            <h3 class="widget-title">Company</h3>
+                            <div class="widget-body">
+                                <ul class="footer-list">
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="#">Jobs</a></li>
+                                    <li><a href="#">Press</a></li>
+                                    <li><a href="contact.html">contact</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer Widget Item -->
+
+                    <!-- Start Footer Widget Item -->
+                    <div class="col-sm-3 col-lg-2">
+                        <div class="footer-widget-item-wrap">
+                            <h3 class="widget-title">Community</h3>
+                            <div class="widget-body">
+                                <ul class="footer-list">
+                                    <li><a href="#">Community</a></li>
+                                    <li><a href="#">Facebook group</a></li>
+                                    <li><a href="#">Forums</a></li>
+                                    <li><a href="#">Meetups</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer Widget Item -->
+
+                    <!-- Start Footer Widget Item -->
+                    <div class="col-sm-3 col-lg-2">
+                        <div class="footer-widget-item-wrap">
+                            <h3 class="widget-title">Legal</h3>
+                            <div class="widget-body">
+                                <ul class="footer-list">
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Terms of Use</a></li>
+                                    <li><a href="#">License Agreement</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer Widget Item -->
+
+                    <!-- Start Footer Widget Item -->
+                    <div class="col-sm-3 col-lg-3">
+                        <div class="footer-widget-item-wrap">
+                            <h3 class="widget-title">Contact Us</h3>
+                            <div class="widget-body">
+                                <div class="contact-text">
+                                    <a href="#">(+612) 2531 5600</a>
+                                    <a href="#">info@la-studioweb.com</a>
+                                    <p>PO Box 1622 Colins Street West</p>
+                                    <a href="#" class="d-block mt-22"><u>Google Maps</u></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Footer Widget Item -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer Widget Area -->
+
+    <!-- Start Footer Bottom Area -->
+    <div class="footer-bottom-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 col-lg-3 m-auto order-1">
+                    <div class="footer-social-icons nav justify-content-center justify-content-sm-start mb-xs-10">
+                        <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-sm-5 col-lg-6 m-auto order-3 order-sm-2 text-center text-sm-left text-lg-center">
+                    <div class="copyright-text mt-xs-10 ">
+                        <p>&copy; 2018 <a href="index.html">Veera</a>, All rights <a href="http://www.17sucai.com/" title="17sucai">Reserved</a>.</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-lg-3 m-auto order-2 text-center text-md-right">
+                    <img src="/assets/img/payments.png" alt="Payment Method"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer Bottom Area -->
+</footer>
+<!--== End Footer Section ===-->
+
+<!--== Start Search box Wrapper ==-->
+<div class="modalSearchBox" id="search-box-popup">
+    <div class="modaloverlay"></div>
+    <div class="search-box-wrapper">
+        <p>Start typing and press Enter to search</p>
+        <div class="search-box-form">
+            <form action="#" method="POST" class="search-form-area">
+                <input type="search"  name="search" id="search" placeholder="Search entire store" />
+                <button type="submit" class="btn-search"><i class="dl-icon-search10"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
+<!--== End Search box Wrapper ==-->
+
+<!--== Start Mini Cart Wrapper ==-->
+<div class="mfp-hide modal-minicart" id="miniCart-popup">
+    <div class="minicart-content-wrap">
+        <h2>Shopping Cart</h2>
+        <div class="minicart-product-list">
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="/assets/img/products/prod-1-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Stripe textured dress</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">1</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">$99.99</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="/assets/img/products/prod-2-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Tassels embroidered dress</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">2</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">$39.29</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="/assets/img/products/prod-3-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Open-knit sweater</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">1</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">33.29</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="/assets/img/products/prod-4-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Open-knit sweater</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">1</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">33.29</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+        </div>
+        <div class="minicart-calculation-wrap d-flex justify-content-between align-items-center">
+            <span class="cal-title">Subtotal:</span>
+            <span class="cal-amount">£119.97</span>
+        </div>
+        <div class="minicart-btn-group mt-38">
+            <a href="cart.html" class="btn btn-black ">View Cart</a>
+            <a href="checkout.html" class="btn btn-black mt-10">checkout</a>
+        </div>
+    </div>
+</div>
+<!--== End Mini Cart Wrapper ==-->
+
+<!--== Start Left Offside Menu Wrapper ==-->
+<div class="mfp-hide modalLeftOffside" id="left-offside-popup">
+    <div class="leftoffside-content-wrap">
+        <nav class="offside-menu">
+            <ul class="left-offsidemenu">
+                <li><a href="#">About Veera Shop</a></li>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">New Look</a></li>
+            </ul>
+        </nav>
+        <div class="offside-text">
+            <a href="#"><img src="/assets/img/payments.png" alt="Payment Method"></a>
+            <p>Pellentesque mollis nec orci id tincidunt. Sed mollis risus eu nisi aliquet, sit amet fermentum justo
+                dapibus.</p>
+            <a href="#">(+612) 2531 5600</a>
+            <a href="#">info@la-studioweb.com</a>
+            <p>PO Box 1622 Colins Street West</p>
+
+            <div class="offset-menu-footer">
+                <a href="#" target="_blank"><u>Google Maps</u></a>
+                <div class="social-icons nav">
+                    <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-pinterest-p"></i></a>
+                </div>
+                <p class="copyright">&copy; 2018 Veera All rights <a href="http://www.17sucai.com/" title="17sucai">Reserved</a>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--== End Left Offside Wrapper ==-->
+
+<!--== Start Quick View Modal Wrapper ==-->
+<div class="modal" id="quickViewModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="dl-icon-close"></i></span>
+            </button>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- Start Single Product Thumbnail -->
+                    <div class="col-lg-5 col-md-6">
+                        <div class="single-product-thumb-wrap p-0 pb-sm-30 pb-md-30">
+                            <!-- Product Thumbnail Large View -->
+                            <div class="quciview-product-thumb-carousel">
+                                <figure class="product-thumb-item">
+                                    <img src="/assets/img/products/prod-1-1.jpg" alt="Single Product"/>
+                                </figure>
+                                <figure class="product-thumb-item">
+                                    <img src="/assets/img/products/prod-1-2.jpg" alt="Single Product"/>
+                                </figure>
+                                <figure class="product-thumb-item">
+                                    <img src="/assets/img/products/prod-2-1.jpg" alt="Single Product"/>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Product Thumbnail -->
+
+                    <!-- Start Single Product Content -->
+                    <div class="col-lg-7 col-md-6 m-auto">
+                        <div class="single-product-content-wrapper">
+                            <div class="single-product-details">
+                                <h2 class="product-name">Open-knit sweater</h2>
+                                <div class="prices-stock-status d-flex align-items-center justify-content-between">
+                                    <div class="prices-group">
+                                        <del class="old-price">$50.00</del>
+                                        <span class="price">$40.00</span>
+                                    </div>
+                                    <span class="stock-status"><i class="dl-icon-check-circle1"></i> In  Stock</span>
+                                </div>
+                                <p class="product-desc">Ut enim added minim veniam, quis nostrud exercitation ullamco
+                                    ommodo
+                                    consequat. Duis aute irure dolor in reprehenderit dolore eu fugiat nulla pariatur.
+                                    Excepteur
+                                    sint occaecat cupidatat non proident. Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing
+                                    elit. Ab dolorem eum labore minima possimus quaerat quod recusandae repellat sequi
+                                    ut.</p>
+
+                                <div class="quantity-btn-group d-flex">
+                                    <div class="pro-qty">
+                                        <input type="text" id="quantity" value="1"/>
+                                    </div>
+                                    <div class="list-btn-group">
+                                        <a href="cart.html" class="btn btn-black">Add to Cart</a>
+                                        <a href="wishlist.html" data-toggle="tooltip" data-placement="top"
+                                           title="Add to wishlist"><i class="dl-icon-heart2"></i></a>
+                                        <a href="compare.html" data-toggle="tooltip" data-placement="top"
+                                           title="Add to Compare"><i class="dl-icon-compare2"></i></a>
+                                    </div>
+                                </div>
+
+                                <div class="find-store-delivery">
+                                    <a href="#"><i class="fa fa-map-marker"></i> Find store near you</a>
+                                    <a href="#"><i class="fa fa-exchange"></i> Delivery and return</a>
+                                </div>
+                            </div>
+
+                            <div class="single-product-footer mt-20 pt-20">
+                                <div class="prod-footer-right">
+                                    <dl class="social-share">
+                                        <dt>Share with</dt>
+                                        <dd><a href="#"><i class="fa fa-facebook"></i></a></dd>
+                                        <dd><a href="#"><i class="fa fa-twitter"></i></a></dd>
+                                        <dd><a href="#"><i class="fa fa-pinterest-p"></i></a></dd>
+                                        <dd><a href="#"><i class="fa fa-google-plus"></i></a></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Product Content -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--== End Quick View Modal Wrapper ==-->
+
+
+<!--=======================Javascript============================-->
+<!--=== Jquery Min Js ===-->
+<script src="/assets/js/vendor/jquery-3.3.1.min.js"></script>
+<!--=== Jquery Migrate Min Js ===-->
+<script src="/assets/js/vendor/jquery-migrate-1.4.1.min.js"></script>
+<!--=== Popper Min Js ===-->
+<script src="/assets/js/vendor/popper.min.js"></script>
+<!--=== Bootstrap Min Js ===-->
+<script src="/assets/js/vendor/bootstrap.min.js"></script>
+<!--=== Plugins Js ===-->
+<script src="/assets/js/plugins.js"></script>
+<!--=== Ajax Mail Js ===-->
+<script src="/assets/js/ajax-mail.js"></script>
+
+<!--=== Active Js ===-->
+<script src="/assets/js/active.min.js"></script>
+
+<!--=== Revolution Slider Js ===-->
+<script src="/assets/js/revslider/jquery.themepunch.tools.min.js"></script>
+<script src="/assets/js/revslider/jquery.themepunch.revolution.min.js"></script>
+
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+<script src="/assets/js/revslider/extensions/revolution.extension.actions.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.carousel.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.migration.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.navigation.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.parallax.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.video.min.js"></script>
+
+
+<script src="/assets/js/revslider/revslider-active.js"></script>
+</body>
+</html>
