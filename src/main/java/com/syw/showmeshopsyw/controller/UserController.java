@@ -3,23 +3,35 @@ package com.syw.showmeshopsyw.controller;
 import com.syw.showmeshopsyw.entity.User;
 import com.syw.showmeshopsyw.mapper.UserMapper;
 import com.syw.showmeshopsyw.service.UserService;
+import com.syw.showmeshopsyw.util.ResultBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("user")
 public class UserController {
     @Autowired
     private UserService userService;
-    @ResponseBody
-    @GetMapping("/getUser/{id}")
-    public User getUser(@PathVariable("id") Integer id){
-        return userService.get(id);
+    @RequestMapping("myCount")
+    public String myCount(){
+            return "my-account";
     }
-    @RequestMapping("test")
-    public String test1(Model model){
-        model.addAttribute("test","测试thymeleaf");
-        return "test";
+    @RequestMapping("login")
+    public String login(User user){
+        try {
+            userService.login(user);
+        }catch (Exception e) {
+            return "redirect:/user/myCount";
+        }
+        return "redirect:/clothes/index";
+    }
+    @RequestMapping("register")
+    public String register(User user){
+        ResultBean resultBean=new ResultBean();
+        userService.register(user);
+        resultBean.setMsg("注册成功！");
+        return "redirect:/clothes/index";
     }
 }

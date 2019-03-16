@@ -95,21 +95,20 @@
                             </thead>
 
                             <tbody>
-                                <tr>
+                                <tr th:each="c:${clothes}">
                                     <td class="product-list">
                                         <div class="cart-product-item d-flex align-items-center">
                                             <div class="remove-icon">
                                                 <button><i class="fa fa-trash-o"></i></button>
                                             </div>
-                                            <a href="single-product-sticky.html" class="product-thumb">
-                                                <img src="/assets/img/products/prod-1-1.jpg" alt="Product"/>
+                                            <a href="#" class="product-thumb">
+                                                <img th:src="@{'/assets/img/products/'+${c.picAddress1+'.jpg'}}" alt="Product"/>
                                             </a>
-                                            <a href="single-product-tab-left.html" class="product-name">Metallic cotton
-                                                dress</a>
+                                            <a href="#" class="product-name" th:text="${c.name}"></a>
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="price">$29.99</span>
+                                        <span class="price" th:text="${c.newPrice}"></span>
                                     </td>
                                     <td>
                                         <div class="pro-qty">
@@ -118,162 +117,6 @@
                                     </td>
                                     <td>
                                         <span class="price">$29.99</span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="product-list">
-                                        <div class="cart-product-item d-flex align-items-center">
-                                            <div class="remove-icon">
-                                                <button><i class="fa fa-trash-o"></i></button>
-                                            </div>
-                                            <a href="single-product-sticky.html" class="product-thumb">
-                                                <img src="/assets/img/products/prod-1-2.jpg" alt="Product"/>
-                                            </a>
-                                            <a href="single-product-tab-left.html" class="product-name">Open-knit
-                                                sweater</a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="price">$39.99</span>
-                                    </td>
-                                    <td>
-                                        <div class="pro-qty">
-                                            <input type="text" class="quantity" value="1"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="price">$39.99</span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="product-list">
-                                        <div class="cart-product-item d-flex align-items-center">
-                                            <div class="remove-icon">
-                                                <button><i class="fa fa-trash-o"></i></button>
-                                            </div>
-                                            <a href="single-product-sticky.html" class="product-thumb">
-                                                <img src="/assets/img/products/prod-2-1.jpg" alt="Product"/>
-                                            </a>
-                                            <a href="single-product-tab-left.html" class="product-name">Metallic cotton
-                                                dress</a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="price">$29.99</span>
-                                    </td>
-                                    <td>
-                                        <div class="pro-qty">
-                                            <input type="text" class="quantity" value="1"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="price">$29.99</span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="product-list">
-                                        <div class="cart-product-item d-flex align-items-center">
-                                            <div class="remove-icon">
-                                                <button><i class="fa fa-trash-o"></i></button>
-                                            </div>
-                                            <a href="single-product-sticky.html" class="product-thumb">
-                                                <img src="/assets/img/products/prod-2-2.jpg" alt="Product"/>
-                                            </a>
-                                            <a href="single-product-tab-left.html" class="product-name">Open-knit
-                                                sweater</a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="price">$39.99</span>
-                                    </td>
-                                    <td>
-                                        <div class="pro-qty">
-                                            <input type="text" class="quantity" value="1"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="price">$39.99</span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="product-list">
-                                        <div class="cart-product-item d-flex align-items-center">
-                                            <div class="remove-icon">
-                                                <button><i class="fa fa-trash-o"></i></button>
-                                            </div>
-                                            <a href="single-product-sticky.html" class="product-thumb">
-                                                <img src="/assets/img/products/prod-3-1.jpg" alt="Product"/>
-                                            </a>
-                                            <a href="single-product-tab-left.html" class="product-name">Metallic cotton
-                                                dress</a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="price">$29.99</span>
-                                    </td>
-                                    <td>
-                                        <div class="pro-qty">
-                                            <input type="text" class="quantity" value="1"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="price">$29.99</span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="product-list">
-                                        <div class="cart-product-item d-flex align-items-center">
-                                            <div class="remove-icon">
-                                                <button><i class="fa fa-trash-o"></i></button>
-                                            </div>
-                                            <a href="single-product-sticky.html" class="product-thumb">
-                                                <img src="/assets/img/products/prod-3-2.jpg" alt="Product"/>
-                                            </a>
-                                            <a href="single-product-tab-left.html" class="product-name">Open-knit
-                                                sweater</a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="price">$39.99</span>
-                                    </td>
-                                    <td>
-                                        <div class="pro-qty">
-                                            <input type="text" class="quantity" value="1"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="price">$39.99</span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="product-list">
-                                        <div class="cart-product-item d-flex align-items-center">
-                                            <div class="remove-icon">
-                                                <button><i class="fa fa-trash-o"></i></button>
-                                            </div>
-                                            <a href="single-product-sticky.html" class="product-thumb">
-                                                <img src="/assets/img/products/prod-4-2.jpg" alt="Product"/>
-                                            </a>
-                                            <a href="single-product-tab-left.html" class="product-name">Open-knit
-                                                sweater</a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="price">$39.99</span>
-                                    </td>
-                                    <td>
-                                        <div class="pro-qty">
-                                            <input type="text" class="quantity" value="1"/>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="price">$39.99</span>
                                     </td>
                                 </tr>
                             </tbody>

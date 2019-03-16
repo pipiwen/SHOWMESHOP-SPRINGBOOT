@@ -35,11 +35,11 @@
                                         <li><a href="/pages/faq">Faq</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown-show mega-fullwidth"><a href="/shop/fullWide">Shop</a>
+                                <li class="dropdown-show mega-fullwidth"><a href="/shop/fullWide?pageNum=1">Shop</a>
                                     <ul class="mega-menu-wrap dropdown-nav d-flex">
                                         <li class="mega-menu-item"><a href="/shop/fullWide" class="mega-item-title">Shop Pages</a>
                                             <ul>
-                                                <li><a href="/shop/fullWide">Shop Full Wide</a></li>
+                                                <li><a href="/shop/fullWide?pageNum=1">Shop Full Wide</a></li>
                                                 <li><a href="/shop/collection">Shop by Collections</a></li>
                                             </ul>
                                         </li>
@@ -67,12 +67,11 @@
                         </nav>
                         <!-- End Main Menu -->
                     </div>
-
                     <div class="header-right-area d-flex justify-content-end align-items-center">
-                        <button class="search-icon animate-modal-popup" data-mfp-src="#search-box-popup"><i class="dl-icon-search1"></i></button>
+                       <!-- <button class="search-icon animate-modal-popup" data-mfp-src="#search-box-popup"><i class="dl-icon-search1"></i></button>-->
                         <ul class="user-area">
                             <li class="dropdown-show">
-                                <button><i class="fa fa-user"></i></button>
+                                <button><i class="fa fa-user" th:text="${session.userSession.getUsername()}"></i></button>
                                 <ul class="dropdown-nav">
                                     <li><a href="/commerce/account">My Account</a></li>
                                     <li><a href="/commerce/wishList">Wishlist</a></li>
