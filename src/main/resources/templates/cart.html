@@ -31,7 +31,35 @@
     <link href="/assets/css/helper.min.css" rel="stylesheet">
     <!--=== Main Style CSS ===-->
     <link href="/assets/css/style.css" rel="stylesheet">
-    
+    <!--=======================Javascript============================-->
+    <!--=== Jquery Min Js ===-->
+    <script th:src="@{/assets/js/vendor/jquery-3.3.1.min.js}"></script>
+    <!--=== Jquery Migrate Min Js ===-->
+    <script th:src="@{/assets/js/vendor/jquery-migrate-1.4.1.min.js}"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="/assets/js/vendor/popper.min.js"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="/assets/js/vendor/bootstrap.min.js"></script>
+    <!--=== Plugins Js ===-->
+    <script src="/assets/js/plugins.js"></script>
+    <!--=== Ajax Mail Js ===-->
+    <script src="/assets/js/ajax-mail.js"></script>
+    <!--=== Active Js ===-->
+    <script src="/assets/js/active.min.js"></script>
+    <!--=== Revolution Slider Js ===-->
+    <script src="/assets/js/revslider/jquery.themepunch.tools.min.js"></script>
+    <script src="/assets/js/revslider/jquery.themepunch.revolution.min.js"></script>
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+    <script src="/assets/js/revslider/extensions/revolution.extension.actions.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.migration.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.video.min.js"></script>
+    <script src="/assets/js/revslider/revslider-active.js"></script>
     <!-- Modernizer JS -->
     <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
@@ -99,7 +127,7 @@
                                     <td class="product-list">
                                         <div class="cart-product-item d-flex align-items-center">
                                             <div class="remove-icon">
-                                                <button><i class="fa fa-trash-o"></i></button>
+                                                <button><i class="fa fa-trash-o" th:attr="data-clothesId=${c.id}" onclick="delCart(this)" ></i></button>
                                             </div>
                                             <a href="#" class="product-thumb">
                                                 <img th:src="@{'/assets/img/products/'+${c.picAddress1+'.jpg'}}" alt="Product"/>
@@ -133,7 +161,6 @@
 
                         <div class="cart-update-buttons mt-xs-14">
                             <button class="btn-clear-cart">Clear Cart</button>
-                            <button class="btn-update-cart">Update Cart</button>
                         </div>
                     </div>
                 </div>
@@ -533,41 +560,23 @@
     </div>
 </div>
 <!--== End Quick View Modal Wrapper ==-->
-
-
-<!--=======================Javascript============================-->
-<!--=== Jquery Min Js ===-->
-<script src="/assets/js/vendor/jquery-3.3.1.min.js"></script>
-<!--=== Jquery Migrate Min Js ===-->
-<script src="/assets/js/vendor/jquery-migrate-1.4.1.min.js"></script>
-<!--=== Popper Min Js ===-->
-<script src="/assets/js/vendor/popper.min.js"></script>
-<!--=== Bootstrap Min Js ===-->
-<script src="/assets/js/vendor/bootstrap.min.js"></script>
-<!--=== Plugins Js ===-->
-<script src="/assets/js/plugins.js"></script>
-<!--=== Ajax Mail Js ===-->
-<script src="/assets/js/ajax-mail.js"></script>
-
-<!--=== Active Js ===-->
-<script src="/assets/js/active.min.js"></script>
-
-<!--=== Revolution Slider Js ===-->
-<script src="/assets/js/revslider/jquery.themepunch.tools.min.js"></script>
-<script src="/assets/js/revslider/jquery.themepunch.revolution.min.js"></script>
-
-<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-<script src="/assets/js/revslider/extensions/revolution.extension.actions.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.carousel.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.kenburn.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.layeranimation.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.migration.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.navigation.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.parallax.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.slideanims.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.video.min.js"></script>
-
-
-<script src="/assets/js/revslider/revslider-active.js"></script>
+<script th:inline="javascript" type="text/javascript">
+    function delCart(e) {
+        var clothesId=$(e).attr("data-clothesId");
+        $.ajax({
+            url:'/commerce/delCart',
+            dataType:'text',
+            contentType:'application/json;charset=utf-8',
+            method:'post',
+            data:JSON.stringify(clothesId),
+            success:function (msg) {
+                $(e).parent().parent().parent().parent().parent().remove();
+            },
+            error:function (resp) {
+                alert("删除失败！");
+            }
+        })
+    }
+</script>
 </body>
 </html>

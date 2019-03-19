@@ -9,6 +9,8 @@ public class Clothes {
     private String picAddress2;
     private Double oldPrice;
     private Double newPrice;
+    private Double rating;
+    private Double costEffective;
 
     public Integer getId() {
         return id;
@@ -80,5 +82,21 @@ public class Clothes {
 
     public void setNewPrice(Double newPrice) {
         this.newPrice = newPrice;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
+    public Double getCostEffective() {
+        return costEffective;
+    }
+
+    public void setCostEffective() {
+        this.costEffective = this.newPrice/this.rating;
     }
 }

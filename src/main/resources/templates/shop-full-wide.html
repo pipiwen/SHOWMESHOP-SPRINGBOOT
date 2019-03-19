@@ -30,7 +30,36 @@
     <link href="/assets/css/helper.min.css" rel="stylesheet">
     <!--=== Main Style CSS ===-->
     <link href="/assets/css/style.css" rel="stylesheet">
-    
+    <!--=======================Javascript============================-->
+    <!--=== Jquery Min Js ===-->
+    <script th:src="@{/assets/js/vendor/jquery-3.3.1.min.js}"></script>
+    <!--=== Jquery Migrate Min Js ===-->
+    <script th:src="@{/assets/js/vendor/jquery-migrate-1.4.1.min.js}"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="/assets/js/vendor/popper.min.js"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="/assets/js/vendor/bootstrap.min.js"></script>
+    <!--=== Plugins Js ===-->
+    <script src="/assets/js/plugins.js"></script>
+    <!--=== Ajax Mail Js ===-->
+    <script src="/assets/js/ajax-mail.js"></script>
+
+    <!--=== Active Js ===-->
+    <script src="/assets/js/active.min.js"></script>
+    <!--=== Revolution Slider Js ===-->
+    <script src="/assets/js/revslider/jquery.themepunch.tools.min.js"></script>
+    <script src="/assets/js/revslider/jquery.themepunch.revolution.min.js"></script>
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+    <script src="/assets/js/revslider/extensions/revolution.extension.actions.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.migration.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.video.min.js"></script>
+    <script src="/assets/js/revslider/revslider-active.js"></script>
     <!-- Modernizer JS -->
     <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
@@ -197,31 +226,32 @@
                         <div class="row">
                             <!-- Start Single Product -->
                             <div class="col-lg-3 col-sm-6" th:each="clothes:${clothesList.getList()}">
+                                <input class="name1" th:value="${clothes.name}" type="hidden"/>
                                 <div class="single-product-wrap" >
                                     <!-- Product Thumbnail -->
                                     <figure class="product-thumbnail">
-                                        <a href="single-product.html" class="d-block">
-                                            <img class="primary-thumb"   th:src="@{'/assets/img/products/'+${clothes.picAddress1+'.jpg'}}"
+                                        <a class="d-block">
+                                            <img class="primary-thumb" th:src="@{'/assets/img/products/'+${clothes.picAddress1+'.jpg'}}"
                                                  alt="Product"/>
                                             <img class="secondary-thumb" th:src="@{'/assets/img/products/'+${clothes.picAddress2+'.jpg'}}"
                                                  alt="Product"/>
                                         </a>
                                         <figcaption class="product-hvr-content">
-                                            <a th:href="@{'/commerce/addCart?clothesId='+${clothes.id}}" class="btn btn-black btn-addToCart" >Add to Cart</a>
+                                            <div th:onclick="|javascript:addCart(${clothes.id})|" class="btn btn-black btn-addToCart" >Add to Cart</div>
                                             <div class="prod-btn-group">
-                                                <span data-toggle="tooltip" data-placement="top" title="Quick Shop"><button
-                                                        data-toggle="modal" data-target="#quickViewModal"><i
-                                                        class="dl-icon-view"></i></button></span>
+                                                <a data-toggle="tooltip" data-placement="top" title="Quick Shop"><button
+                                                        data-toggle="modal" data-target="#quickViewModal" ><i
+                                                        class="dl-icon-view" th:attr="data-name=${clothes.name},data-picAddress1=${clothes.picAddress1},
+                                                        data-picAddress2=${clothes.picAddress2},data-oldPrice=${clothes.oldPrice},data-newPrice=${clothes.newPrice}" onclick="showPic(this)"></i></button></a>
                                                 <a href="wishlist.html" data-toggle="tooltip" data-placement="top"
                                                    title="Add to Wishlist"><i class="dl-icon-heart4"></i></a>
-                                                <a href="#" data-toggle="tooltip" data-placement="top"
+                                                <a th:href="@{'/commerce/addCompare?clothesId='+${clothes.id}}" data-toggle="tooltip" data-placement="top"
                                                    title="Add to Compare"><i
                                                         class="dl-icon-compare"></i></a>
                                             </div>
                                             <span class="product-badge sale">-20%</span>
                                         </figcaption>
                                     </figure>
-
                                     <!-- Product Details -->
                                     <div class="product-details">
                                         <h2 class="product-name" th:text="${clothes.name}"></h2>
@@ -229,21 +259,6 @@
                                             <del class="oldPrice" th:text="${clothes.oldPrice}"></del>
                                             <span class="price" th:text="${clothes.newPrice}"></span>
                                         </div>
-                                       <!-- <div class="list-view-content">
-                                            <p class="product-desc">Ut enim ad minim veniam, quis nostrud exercitation
-                                                ullamco ommodo consequat. Duis aute irure dolor in reprehenderit dolore
-                                                eu fugiat. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Accusantium commodi consectetur dignissimos, eveniet maiores nesciunt
-                                                quisquam quos soluta!</p>
-
-                                            <div class="list-btn-group mt-30 mt-sm-14">
-                                                <a href="cart.html" class="btn btn-black">Add to Cart</a>
-                                                <a href="wishlist.html" data-toggle="tooltip" data-placement="top"
-                                                   title="Add to wishlist"><i class="dl-icon-heart2"></i></a>
-                                                <a href="compare.html" data-toggle="tooltip" data-placement="top"
-                                                   title="Add to Compare"><i class="dl-icon-compare2"></i></a>
-                                            </div>
-                                        </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -267,7 +282,9 @@
     </div>
 </div>
 <!--== End Shop Page Wrapper ==-->
+<script type="text/javascript">
 
+</script>
 <!--== Start Footer Section ===-->
 <footer id="footer-area">
     <!-- Start Footer Widget Area -->
@@ -536,13 +553,10 @@
                             <!-- Product Thumbnail Large View -->
                             <div class="quciview-product-thumb-carousel">
                                 <figure class="product-thumb-item">
-                                    <img src="/assets/img/products/prod-1-1.jpg" alt="Single Product"/>
+                                    <img name="img1" src="/assets/img/products/prod-1-1.jpg" alt="Single Product"/>
                                 </figure>
                                 <figure class="product-thumb-item">
-                                    <img src="/assets/img/products/prod-1-2.jpg" alt="Single Product"/>
-                                </figure>
-                                <figure class="product-thumb-item">
-                                    <img src="/assets/img/products/prod-2-1.jpg" alt="Single Product"/>
+                                    <img name="img2" src="/assets/img/products/prod-1-2.jpg" alt="Single Product"/>
                                 </figure>
                             </div>
                         </div>
@@ -553,11 +567,11 @@
                     <div class="col-lg-7 col-md-6 m-auto">
                         <div class="single-product-content-wrapper">
                             <div class="single-product-details">
-                                <h2 class="product-name">Open-knit sweater</h2>
+                                <h2 class="product-name" name="proName">sweater</h2>
                                 <div class="prices-stock-status d-flex align-items-center justify-content-between">
                                     <div class="prices-group">
-                                        <del class="old-price">$50.00</del>
-                                        <span class="price">$40.00</span>
+                                        <del name="oldPrice" class="old-price">$50.00</del>
+                                        <span name="newPrice" class="price">$40.00</span>
                                     </div>
                                     <span class="stock-status"><i class="dl-icon-check-circle1"></i> In  Stock</span>
                                 </div>
@@ -609,41 +623,45 @@
     </div>
 </div>
 <!--== End Quick View Modal Wrapper ==-->
+<script th:inline="javascript" type="text/javascript">
+    function addCart(clothesId) {
+        $.ajax({
+            url:'/commerce/addCart',
+            dataType:'text',
+            contentType:'application/json;charset=utf-8',
+            method:'post',
+            data:JSON.stringify(clothesId),
+            success:function (msg) {
+                alert(msg);
+            },
+            error:function (resp) {
+                alert("error...");
+            }
+        })
+    }
+        /*$(".dl-icon-view").click(function () {
+            var name=$(".name1").val();
+            /!* var oldPrice=$("input[ name='oldPrice' ]").val();
+             var newPrice=$("input[ name='newPrice' ]").val();*!/
+            var picAddress1=$(".primary-thumb").attr("src");
+            /!*var picAddress2=$("input[ name='picAddress2' ]").val();*!/
+            alert("name:"+name);
+            alert("picAddress1:::"+picAddress1);
+            /!*$("img[name='img1']").attr("src","/assets/img/products/"+picAddress1+".jpg");*!/
+        })*/
+        function showPic(e) {
+            var name=$(e).attr("data-name");
+            var picAddress1=$(e).attr("data-picAddress1");
+            var picAddress2=$(e).attr("data-picAddress2");
+            var oldPrice=$(e).attr("data-oldPrice");
+            var newPrice=$(e).attr("data-newPrice");
+            $("img[name='img1']").attr("src","/assets/img/products/"+picAddress1+".jpg");
+            $("img[name='img2']").attr("src","/assets/img/products/"+picAddress2+".jpg");
+            $("h2[name='proName']").html(name);
+            $("del[name='oldPrice']").html(oldPrice);
+            $("span[name='newPrice']").html(newPrice);
 
-
-<!--=======================Javascript============================-->
-<!--=== Jquery Min Js ===-->
-<script src="/assets/js/vendor/jquery-3.3.1.min.js"></script>
-<!--=== Jquery Migrate Min Js ===-->
-<script src="/assets/js/vendor/jquery-migrate-1.4.1.min.js"></script>
-<!--=== Popper Min Js ===-->
-<script src="/assets/js/vendor/popper.min.js"></script>
-<!--=== Bootstrap Min Js ===-->
-<script src="/assets/js/vendor/bootstrap.min.js"></script>
-<!--=== Plugins Js ===-->
-<script src="/assets/js/plugins.js"></script>
-<!--=== Ajax Mail Js ===-->
-<script src="/assets/js/ajax-mail.js"></script>
-
-<!--=== Active Js ===-->
-<script src="/assets/js/active.min.js"></script>
-
-<!--=== Revolution Slider Js ===-->
-<script src="/assets/js/revslider/jquery.themepunch.tools.min.js"></script>
-<script src="/assets/js/revslider/jquery.themepunch.revolution.min.js"></script>
-
-<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-<script src="/assets/js/revslider/extensions/revolution.extension.actions.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.carousel.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.kenburn.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.layeranimation.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.migration.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.navigation.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.parallax.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.slideanims.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.video.min.js"></script>
-
-
-<script src="/assets/js/revslider/revslider-active.js"></script>
+        }
+</script>
 </body>
 </html>
