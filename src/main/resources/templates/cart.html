@@ -112,7 +112,7 @@
             <div class="col-lg-8">
                 <div class="shopping-cart-list-area">
                     <div class="shopping-cart-table table-responsive">
-                        <table class="table table-bordered text-center">
+                        <table id="table" class="table table-bordered text-center">
                             <thead>
                                 <tr>
                                     <th>Products</th>
@@ -139,12 +139,12 @@
                                         <span class="price" th:text="${c.newPrice}"></span>
                                     </td>
                                     <td>
-                                        <div class="pro-qty">
+                                        <div class="pro-qty" th:attr="data-price=${c.newPrice}" onclick="countPrice(this)">
                                             <input type="text" class="quantity" value="1"/>
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="price">$29.99</span>
+                                        <span class="price1" th:text="${c.newPrice}"></span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -175,7 +175,7 @@
                         <table class="table table-borderless">
                             <tr class="cart-sub-total">
                                 <th>Subtotal</th>
-                                <td>$289.89</td>
+                                <td id="td1">$289.89</td>
                             </tr>
                             <tr class="shipping">
                                 <th>Shipping</th>
@@ -204,7 +204,7 @@
                             </tr>
                             <tr class="order-total">
                                 <th>Total</th>
-                                <td><b>$299.93</b></td>
+                                <td id="td2"><b>$299.93</b></td>
                             </tr>
                         </table>
                     </div>
@@ -577,6 +577,21 @@
             }
         })
     }
+    function countPrice(e) {
+        var count=$(e).children(".quantity").val();
+        var price=$(e).attr("data-price");
+        var total=0;
+        $(e).parent().next().children().html(count*price);
+        var arr = $('#table tbody tr td:nth-child(4)') //根据id依次找到表格中的td，而后取每列的第二个值
+            .map(function () { return $(this).children().text() }) // 使用 map 对每一个 td 进行处理，function为回调函数，返回每个元素的text
+            .get(); // 将对象集合转换为数组，得到arr数组
+        for(var i=0;i<arr.length;i++){
+            total+=parseInt(arr[i]);
+        }
+        $("#td1").text("￥"+total);
+        $("#td2").text("￥"+total);
+    }
+
 </script>
 </body>
 </html>
