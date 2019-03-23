@@ -139,8 +139,8 @@
                                         <span class="price" th:text="${c.newPrice}"></span>
                                     </td>
                                     <td>
-                                        <div class="pro-qty" th:attr="data-price=${c.newPrice}" onclick="countPrice(this)">
-                                            <input type="text" class="quantity" value="1"/>
+                                        <div class="pro-qty" th:attr="data-price=${c.newPrice},data-clothesId=${c.id}" onclick="countPrice(this)">
+                                            <input type="text" class="quantity" th:value="${c.amount}"/>
                                         </div>
                                     </td>
                                     <td>
@@ -175,42 +175,17 @@
                         <table class="table table-borderless">
                             <tr class="cart-sub-total">
                                 <th>Subtotal</th>
-                                <td id="td1">$289.89</td>
-                            </tr>
-                            <tr class="shipping">
-                                <th>Shipping</th>
-                                <td>
-                                    <ul class="shipping-method">
-                                        <li>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="flat_shipping" name="shipping_method" class="custom-control-input" checked />
-                                                <label class="custom-control-label" for="flat_shipping">Flat Rate : $10</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="free_shipping" name="shipping_method" class="custom-control-input" />
-                                                <label class="custom-control-label" for="free_shipping">Free Shipping</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="cod_shipping" name="shipping_method" class="custom-control-input" />
-                                                <label class="custom-control-label" for="cod_shipping">Cash on Delivery</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </td>
+                                <td id="td1"></td>
                             </tr>
                             <tr class="order-total">
                                 <th>Total</th>
-                                <td id="td2"><b>$299.93</b></td>
+                                <td><b id="td2"></b></td>
                             </tr>
                         </table>
                     </div>
 
                     <div class="proceed-checkout-btn">
-                        <a href="checkout.html" class="btn btn-full btn-black">Proceed to Checkout</a>
+                        <button onclick="toOrder()" class="btn btn-full btn-black">Proceed to Checkout</button>
                     </div>
                 </div>
             </div>
@@ -354,85 +329,35 @@
 <!--== End Search box Wrapper ==-->
 
 <!--== Start Mini Cart Wrapper ==-->
-<div class="mfp-hide modal-minicart" id="miniCart-popup">
+<div class="mfp-hide modal-minicart" id="miniCart-popup" th:fragment="sidebar">
     <div class="minicart-content-wrap">
-        <h2>Shopping Cart</h2>
+        <h2>Shopping MimiCart</h2>
         <div class="minicart-product-list">
             <!-- Start Single Product -->
-            <div class="single-product-item d-flex">
+            <div class="single-product-item d-flex" th:each="c:${clothes}">
                 <figure class="product-thumb">
-                    <a href="single-product.html"><img src="/assets/img/products/prod-1-1.jpg" alt="Product"></a>
+                    <a href="#"><img th:src="@{'/assets/img/products/'+${c.picAddress1+'.jpg'}}" alt="Product"></a>
                 </figure>
                 <div class="product-details">
-                    <h2 class="product-title"><a href="single-product.html">Stripe textured dress</a></h2>
+                    <h2 class="product-title"><a href="single-product.html" th:text="${c.name}"></a></h2>
                     <div class="prod-cal d-flex align-items-center">
-                        <span class="quantity">1</span>
+                        <span class="price" th:text="${c.newPrice}"></span>
                         <span class="multiplication">&#215;</span>
-                        <span class="price">$99.99</span>
-                    </div>
-                </div>
-                <a href="#" class="remove-icon">&#215;</a>
-            </div>
-            <!-- End Single Product -->
+                        <span class="quantity" th:text="${c.amount}"></span>
 
-            <!-- Start Single Product -->
-            <div class="single-product-item d-flex">
-                <figure class="product-thumb">
-                    <a href="single-product.html"><img src="/assets/img/products/prod-2-1.jpg" alt="Product"></a>
-                </figure>
-                <div class="product-details">
-                    <h2 class="product-title"><a href="single-product.html">Tassels embroidered dress</a></h2>
-                    <div class="prod-cal d-flex align-items-center">
-                        <span class="quantity">2</span>
-                        <span class="multiplication">&#215;</span>
-                        <span class="price">$39.29</span>
                     </div>
                 </div>
                 <a href="#" class="remove-icon">&#215;</a>
             </div>
-            <!-- End Single Product -->
-
-            <!-- Start Single Product -->
-            <div class="single-product-item d-flex">
-                <figure class="product-thumb">
-                    <a href="single-product.html"><img src="/assets/img/products/prod-3-1.jpg" alt="Product"></a>
-                </figure>
-                <div class="product-details">
-                    <h2 class="product-title"><a href="single-product.html">Open-knit sweater</a></h2>
-                    <div class="prod-cal d-flex align-items-center">
-                        <span class="quantity">1</span>
-                        <span class="multiplication">&#215;</span>
-                        <span class="price">33.29</span>
-                    </div>
-                </div>
-                <a href="#" class="remove-icon">&#215;</a>
-            </div>
-            <!-- End Single Product -->
-
-            <!-- Start Single Product -->
-            <div class="single-product-item d-flex">
-                <figure class="product-thumb">
-                    <a href="single-product.html"><img src="/assets/img/products/prod-4-1.jpg" alt="Product"></a>
-                </figure>
-                <div class="product-details">
-                    <h2 class="product-title"><a href="single-product.html">Open-knit sweater</a></h2>
-                    <div class="prod-cal d-flex align-items-center">
-                        <span class="quantity">1</span>
-                        <span class="multiplication">&#215;</span>
-                        <span class="price">33.29</span>
-                    </div>
-                </div>
-                <a href="#" class="remove-icon">&#215;</a>
-            </div>
-            <!-- End Single Product -->
         </div>
+            <!-- End Single Product -->
         <div class="minicart-calculation-wrap d-flex justify-content-between align-items-center">
             <span class="cal-title">Subtotal:</span>
-            <span class="cal-amount">£119.97</span>
+            <span class="cal-amount" id="span1"></span>
         </div>
         <div class="minicart-btn-group mt-38">
-            <a href="cart.html" class="btn btn-black ">View Cart</a>
-            <a href="checkout.html" class="btn btn-black mt-10">checkout</a>
+            <a href="/commerce/cart" class="btn btn-black ">View Cart</a>
+            <a href="/commerce/checkOut" class="btn btn-black mt-10">checkout</a>
         </div>
     </div>
 </div>
@@ -561,6 +486,19 @@
 </div>
 <!--== End Quick View Modal Wrapper ==-->
 <script th:inline="javascript" type="text/javascript">
+    $(window).load(function(){
+        var total=0;
+        var arr = $('#table tbody tr td:nth-child(4)') //根据id依次找到表格中的td，而后取每列的第4个值
+            .map(function () { return $(this).children().text() }) // 使用 map 对每一个 td 进行处理，function为回调函数，返回每个元素的text
+            .get(); // 将对象集合转换为数组，得到arr数组
+        for(var i=0;i<arr.length;i++){
+            total+=parseInt(arr[i]);
+        }
+        $("#td1").text("￥"+total);
+        $("#td2").text("￥"+total);
+        $("#span1").text("￥"+total);
+
+    });
     function delCart(e) {
         var clothesId=$(e).attr("data-clothesId");
         $.ajax({
@@ -578,20 +516,56 @@
         })
     }
     function countPrice(e) {
+        var id=$(e).attr("data-clothesId")
         var count=$(e).children(".quantity").val();
         var price=$(e).attr("data-price");
+        var subtotal=count*price;
         var total=0;
         $(e).parent().next().children().html(count*price);
-        var arr = $('#table tbody tr td:nth-child(4)') //根据id依次找到表格中的td，而后取每列的第二个值
-            .map(function () { return $(this).children().text() }) // 使用 map 对每一个 td 进行处理，function为回调函数，返回每个元素的text
-            .get(); // 将对象集合转换为数组，得到arr数组
+        var arr = $('#table tbody tr td:nth-child(4)')
+            .map(function () { return $(this).children().text() })
+            .get();
         for(var i=0;i<arr.length;i++){
             total+=parseInt(arr[i]);
         }
         $("#td1").text("￥"+total);
         $("#td2").text("￥"+total);
-    }
+        console.info("id: "+id+" count: "+count);
 
+        var postData={
+            id:id,
+            amount:count,
+            subtotal:subtotal
+        }
+        $.ajax({
+            url:'/commerce/amount',
+            dataType:'text',
+            contentType:'application/json;charset=utf-8',
+            method:'post',
+            data:JSON.stringify(postData),
+            success:function (msg) {
+                console.info(msg);
+            },
+            error:function (resp) {
+                alert("修改失败！");
+            }
+        })
+
+    }
+    $("input[name='shipping_method']").change(function () {
+        var val=$('input:radio[name="shipping_method"]:checked').val();
+        var total=0;
+        var arr = $('#table tbody tr td:nth-child(4)')
+            .map(function () { return $(this).children().text() })
+            .get();
+        for(var i=0;i<arr.length;i++){
+            total+=parseInt(arr[i]);
+        }
+        $("#td2").text("￥"+(total+parseInt(val)));
+    })
+    function toOrder() {
+        location.href='/commerce/checkOut';
+    }
 </script>
 </body>
 </html>

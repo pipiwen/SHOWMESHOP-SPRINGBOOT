@@ -1,0 +1,41 @@
+<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org"><!--//导入thymeleaf命名空间-->
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Cart</title>
+</head>
+<body>
+<!--== Start Mini Cart Wrapper ==-->
+<div class="mfp-hide modal-minicart" id="miniCart-popup" th:fragment="sidebar">
+    <div class="minicart-content-wrap">
+        <h2>Shopping Cart</h2>
+        <div class="minicart-product-list">
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex" th:each="m:${miniClothes}">
+                <figure class="product-thumb">
+                    <a href="#"><img th:src="@{'/assets/img/products/'+${m.picAddress1+'.jpg'}}" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="#" th:text="${m.name}"></a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">1</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price" th:text="${m.newPrice}"></span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+        </div>
+        <!--<div class="minicart-calculation-wrap d-flex justify-content-between align-items-center">
+            <span class="cal-title">Subtotal:</span>
+            <span class="cal-amount">£119.97</span>
+        </div>-->
+        <div class="minicart-btn-group mt-38">
+            <a href="cart.html" class="btn btn-black ">View Cart</a>
+            <a href="checkout.html" class="btn btn-black mt-10">checkout</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

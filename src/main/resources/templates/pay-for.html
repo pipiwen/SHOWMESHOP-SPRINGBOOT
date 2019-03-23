@@ -1,11 +1,12 @@
-﻿<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">-
+﻿<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="meta description">
 
-    <title>Shop Full Wide :: Veera - Multipurpose eCommerce Bootstrap 4 Template</title>
+    <title>Tracking Order :: Veera - Multipurpose eCommerce Bootstrap 4 Template</title>
 
         <!--=== Favicon ===-->
     <link rel="shortcut icon" href="http://demo.devitems.com/veera/veera/assets/img/favicon.ico" type="image/x-icon"/>
@@ -30,36 +31,7 @@
     <link href="/assets/css/helper.min.css" rel="stylesheet">
     <!--=== Main Style CSS ===-->
     <link href="/assets/css/style.css" rel="stylesheet">
-    <!--=======================Javascript============================-->
-    <!--=== Jquery Min Js ===-->
-    <script th:src="@{/assets/js/vendor/jquery-3.3.1.min.js}"></script>
-    <!--=== Jquery Migrate Min Js ===-->
-    <script th:src="@{/assets/js/vendor/jquery-migrate-1.4.1.min.js}"></script>
-    <!--=== Popper Min Js ===-->
-    <script src="/assets/js/vendor/popper.min.js"></script>
-    <!--=== Bootstrap Min Js ===-->
-    <script src="/assets/js/vendor/bootstrap.min.js"></script>
-    <!--=== Plugins Js ===-->
-    <script src="/assets/js/plugins.js"></script>
-    <!--=== Ajax Mail Js ===-->
-    <script src="/assets/js/ajax-mail.js"></script>
-
-    <!--=== Active Js ===-->
-    <script src="/assets/js/active.min.js"></script>
-    <!--=== Revolution Slider Js ===-->
-    <script src="/assets/js/revslider/jquery.themepunch.tools.min.js"></script>
-    <script src="/assets/js/revslider/jquery.themepunch.revolution.min.js"></script>
-    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-    <script src="/assets/js/revslider/extensions/revolution.extension.actions.min.js"></script>
-    <script src="/assets/js/revslider/extensions/revolution.extension.carousel.min.js"></script>
-    <script src="/assets/js/revslider/extensions/revolution.extension.kenburn.min.js"></script>
-    <script src="/assets/js/revslider/extensions/revolution.extension.layeranimation.min.js"></script>
-    <script src="/assets/js/revslider/extensions/revolution.extension.migration.min.js"></script>
-    <script src="/assets/js/revslider/extensions/revolution.extension.navigation.min.js"></script>
-    <script src="/assets/js/revslider/extensions/revolution.extension.parallax.min.js"></script>
-    <script src="/assets/js/revslider/extensions/revolution.extension.slideanims.min.js"></script>
-    <script src="/assets/js/revslider/extensions/revolution.extension.video.min.js"></script>
-    <script src="/assets/js/revslider/revslider-active.js"></script>
+    
     <!-- Modernizer JS -->
     <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
@@ -80,19 +52,21 @@
     </div>
 </div>
 <!--== End PreLoader Wrap ==-->
+
+<!--== Start Header Area ===-->
 <div th:replace="commons/bar :: topbar"></div><!--引入头部bar-->
 
 <!-- Start Page Header Wrapper -->
-<div class="page-header-wrapper">
+<div class="page-header-wrapper layout-two">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="page-header-content">
-                    <h2>Shop Full Wide</h2>
+                    <h2>Pay For</h2>
                     <nav class="page-breadcrumb">
                         <ul class="d-flex justify-content-center">
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="shop-full-wide.html" class="active">Shop Full Wide</a></li>
+                            <li><a href="shop.html" class="active">Tracking Order</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -102,190 +76,31 @@
 </div>
 <!-- End Page Header Wrapper -->
 
-<!--== Start Shop Page Wrapper ==-->
-<div id="shop-page-wrapper" class="pt-86 pt-md-56 pt-sm-46 pb-50 pb-md-20 pb-sm-10">
-    <div class="container-fluid">
+<!--== Start Tracking Order Page Wrapper ==-->
+<div id="tracking-order-page-wrapper" class="pt-90 pt-md-60 pt-sm-50 pb-50 pb-md-20 pb-sm-10">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <!-- Start Product Config Area -->
-                <div class="product-config-area d-md-flex justify-content-between align-items-center">
-                    <div class="product-config-left d-sm-flex">
-                        <p>Showing 1–12 of 25 results</p>
-                        <ul class="product-show-quantity nav mt-xs-14">
-                            <li>Show</li>
-                            <li><a href="#" class="active">12</a></li>
-                            <li><a href="#">15</a></li>
-                            <li><a href="#">30</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="product-config-right d-flex align-items-center mt-sm-14">
-                        <ul class="product-filter-sort">
-                            <li>
-                                <button class="filter-option arrow-toggle">Filters</button>
-                            </li>
-                            <li class="dropdown-show sort-by">
-                                <button class="arrow-toggle">Sort By</button>
-                                <ul class="dropdown-nav">
-                                    <li><a href="#" class="active">Sort by Newest</a></li>
-                                    <li><a href="#">Sort by Popularity</a></li>
-                                    <li><a href="#">Sort by Average Rating</a></li>
-                                    <li><a href="#">Sort by Price: Low to High</a></li>
-                                    <li><a href="#">Sort by Price: High to Low</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="col-lg-5 my-auto">
+                <div class="tracking-order-content">
+                    <p>To track your order please enter your Order ID in the box below and press the “Track” button. This was given to you on your receipt and in the confirmation email you should have received.</p>
                 </div>
-                <!-- End Product Config Area -->
+            </div>
+            <div class="col-lg-6 ml-auto">
+                <div class="tracking-order-form">
+                    <figure class="product-thumb">
+                        <img th:src="@{'/commerce/getQRImage?price='+${price}}" alt="loading" />
+                    </figure>
+                    <figure class="product-thumb">
+                        <a href="/commerce/cart" class="btn btn-black ">确认支付</a>
+                    </figure>
 
-                <!-- Start Product Filter Item Area -->
-                <div class="product-filter-item-wrapper">
-                    <div class="product-filter-content d-md-flex justify-content-between">
-                        <!--  Start Single Filter Item -->
-                        <div class="single-filter-item-wrap">
-                            <h3 class="filter-item-title">Sort By</h3>
-                            <div class="filter-item-body">
-                                <ul class="filter-item-list">
-                                    <li><a href="#" class="active">Sort by Newest</a></li>
-                                    <li><a href="#">Sort by Popularity</a></li>
-                                    <li><a href="#">Sort by Average Rating</a></li>
-                                    <li><a href="#">Sort by Price: Low to High</a></li>
-                                    <li><a href="#">Sort by Price: High to Low</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--  End Single Filter Item -->
-
-                        <!--  Start Single Filter Item -->
-                        <div class="single-filter-item-wrap">
-                            <h3 class="filter-item-title">By Price</h3>
-                            <div class="filter-item-body">
-                                <ul class="filter-item-list">
-                                    <li><a href="#">$20.00 - $30.00</a></li>
-                                    <li><a href="#">$31.00 - $40.00</a></li>
-                                    <li><a href="#">$41.00 - $50.00</a></li>
-                                    <li><a href="#">$51.00 - $60.00</a></li>
-                                    <li><a href="#">$61.00 - $70.00</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--  End Single Filter Item -->
-
-                        <!--  Start Single Filter Item -->
-                        <div class="single-filter-item-wrap">
-                            <h3 class="filter-item-title">Categories</h3>
-                            <div class="filter-item-body">
-                                <ul class="filter-item-list">
-                                    <li><a href="#">Accessories</a></li>
-                                    <li><a href="#">Brands</a></li>
-                                    <li><a href="#">Clothing</a></li>
-                                    <li><a href="#">Gift</a></li>
-                                    <li><a href="#">Kids</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--  End Single Filter Item -->
-
-                        <!--  Start Single Filter Item -->
-                        <div class="single-filter-item-wrap">
-                            <h3 class="filter-item-title">By color</h3>
-                            <div class="filter-item-body">
-                                <ul class="filter-item-list color-filter">
-                                    <li class="black"><a href="#">Black</a></li>
-                                    <li class="blue"><a href="#">Blue</a></li>
-                                    <li class="pink"><a href="#">Pink</a></li>
-                                    <li class="violet"><a href="#">violet</a></li>
-                                    <li class="orange"><a href="#">Orange</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--  End Single Filter Item -->
-
-                        <!--  Start Single Filter Item -->
-                        <div class="single-filter-item-wrap">
-                            <h3 class="filter-item-title">By size</h3>
-                            <div class="filter-item-body">
-                                <ul class="filter-item-list spurs-checkbox">
-                                    <li><a href="#" class="active">S</a></li>
-                                    <li><a href="#">M</a></li>
-                                    <li><a href="#">L</a></li>
-                                    <li><a href="#">XL</a></li>
-                                    <li><a href="#">XXL</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--  End Single Filter Item -->
-                    </div>
                 </div>
-                <!-- End Product Filter Item Area -->
-
-                <!-- Start Shop Page Product Area -->
-                <div class="shop-page-products-wrapper mt-44 mt-sm-30">
-                    <div class="products-wrapper products-on-column">
-                        <div class="row">
-                            <!-- Start Single Product -->
-                            <div class="col-lg-3 col-sm-6" th:each="clothes:${clothesList.getList()}">
-                                <input class="name1" th:value="${clothes.name}" type="hidden"/>
-                                <div class="single-product-wrap" >
-                                    <!-- Product Thumbnail -->
-                                    <figure class="product-thumbnail">
-                                        <a class="d-block">
-                                            <img class="primary-thumb" th:src="@{'/assets/img/products/'+${clothes.picAddress1+'.jpg'}}"
-                                                 alt="Product"/>
-                                            <img class="secondary-thumb" th:src="@{'/assets/img/products/'+${clothes.picAddress2+'.jpg'}}"
-                                                 alt="Product"/>
-                                        </a>
-                                        <figcaption class="product-hvr-content">
-                                            <div onclick="addCart(this)" th:attr="data-clothesId=${clothes.id},data-price=${clothes.newPrice}" class="btn btn-black btn-addToCart" >Add to Cart</div>
-                                            <div class="prod-btn-group">
-                                                <a data-toggle="tooltip" data-placement="top" title="Quick Shop"><button
-                                                        data-toggle="modal" data-target="#quickViewModal" ><i
-                                                        class="dl-icon-view" th:attr="data-name=${clothes.name},data-picAddress1=${clothes.picAddress1},
-                                                        data-picAddress2=${clothes.picAddress2},data-oldPrice=${clothes.oldPrice},
-                                                        data-newPrice=${clothes.newPrice}" onclick="showPic(this)"></i></button></a>
-                                                <a href="wishlist.html" data-toggle="tooltip" data-placement="top"
-                                                   title="Add to Wishlist"><i class="dl-icon-heart4"></i></a>
-                                                <a th:href="@{'/commerce/addCompare?clothesId='+${clothes.id}}" data-toggle="tooltip" data-placement="top"
-                                                   title="Add to Compare"><i
-                                                        class="dl-icon-compare"></i></a>
-                                            </div>
-                                            <span class="product-badge sale">-20%</span>
-                                        </figcaption>
-                                    </figure>
-                                    <!-- Product Details -->
-                                    <div class="product-details">
-                                        <h2 class="product-name" th:text="${clothes.name}"></h2>
-                                        <div class="product-prices">
-                                            <del class="oldPrice" th:text="${clothes.oldPrice}"></del>
-                                            <span class="price" th:text="${clothes.newPrice}"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Page Pagination Start  -->
-                <div class="page-pagination-wrapper mt-70 mt-md-50 mt-sm-40">
-                    <nav class="page-pagination">
-                        <ul class="pagination justify-content-center">
-                            <li><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                            <li><a href="/shop/fullWide?pageNum=1" class="active">1</a></li>
-                            <li><a href="/shop/fullWide?pageNum=2" class="active">2</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <!-- Page Pagination End  -->
             </div>
         </div>
     </div>
 </div>
-<!--== End Shop Page Wrapper ==-->
-<script type="text/javascript">
+<!--== End Tracking Order Page Wrapper ==-->
 
-</script>
 <!--== Start Footer Section ===-->
 <footer id="footer-area">
     <!-- Start Footer Widget Area -->
@@ -423,33 +238,83 @@
 <!--== Start Mini Cart Wrapper ==-->
 <div class="mfp-hide modal-minicart" id="miniCart-popup">
     <div class="minicart-content-wrap">
-        <h2>Shopping MimiCart</h2>
+        <h2>Shopping Cart</h2>
         <div class="minicart-product-list">
             <!-- Start Single Product -->
-            <div class="single-product-item d-flex" th:each="c:${cl}">
+            <div class="single-product-item d-flex">
                 <figure class="product-thumb">
-                    <a href="#"><img th:src="@{'/assets/img/products/'+${c.picAddress1+'.jpg'}}" alt="Product"></a>
+                    <a href="single-product.html"><img src="/assets/img/products/prod-1-1.jpg" alt="Product"></a>
                 </figure>
                 <div class="product-details">
-                    <h2 class="product-title"><a href="single-product.html" th:text="${c.name}"></a></h2>
+                    <h2 class="product-title"><a href="single-product.html">Stripe textured dress</a></h2>
                     <div class="prod-cal d-flex align-items-center">
-                        <span class="price" th:text="${c.newPrice}"></span>
+                        <span class="quantity">1</span>
                         <span class="multiplication">&#215;</span>
-                        <span class="quantity" th:text="${c.amount}"></span>
-
+                        <span class="price">$99.99</span>
                     </div>
                 </div>
                 <a href="#" class="remove-icon">&#215;</a>
             </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="/assets/img/products/prod-2-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Tassels embroidered dress</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">2</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">$39.29</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="/assets/img/products/prod-3-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Open-knit sweater</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">1</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">33.29</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
+
+            <!-- Start Single Product -->
+            <div class="single-product-item d-flex">
+                <figure class="product-thumb">
+                    <a href="single-product.html"><img src="/assets/img/products/prod-4-1.jpg" alt="Product"></a>
+                </figure>
+                <div class="product-details">
+                    <h2 class="product-title"><a href="single-product.html">Open-knit sweater</a></h2>
+                    <div class="prod-cal d-flex align-items-center">
+                        <span class="quantity">1</span>
+                        <span class="multiplication">&#215;</span>
+                        <span class="price">33.29</span>
+                    </div>
+                </div>
+                <a href="#" class="remove-icon">&#215;</a>
+            </div>
+            <!-- End Single Product -->
         </div>
-        <!-- End Single Product -->
         <div class="minicart-calculation-wrap d-flex justify-content-between align-items-center">
             <span class="cal-title">Subtotal:</span>
-            <span class="cal-amount" id="span1"></span>
+            <span class="cal-amount">£119.97</span>
         </div>
         <div class="minicart-btn-group mt-38">
-            <a href="/commerce/cart" class="btn btn-black ">View Cart</a>
-            <a href="/commerce/checkOut" class="btn btn-black mt-10">checkout</a>
+            <a href="cart.html" class="btn btn-black ">View Cart</a>
+            <a href="checkout.html" class="btn btn-black mt-10">checkout</a>
         </div>
     </div>
 </div>
@@ -504,10 +369,13 @@
                             <!-- Product Thumbnail Large View -->
                             <div class="quciview-product-thumb-carousel">
                                 <figure class="product-thumb-item">
-                                    <img name="img1" src="/assets/img/products/prod-1-1.jpg" alt="Single Product"/>
+                                    <img src="/assets/img/products/prod-1-1.jpg" alt="Single Product"/>
                                 </figure>
                                 <figure class="product-thumb-item">
-                                    <img name="img2" src="/assets/img/products/prod-1-2.jpg" alt="Single Product"/>
+                                    <img src="/assets/img/products/prod-1-2.jpg" alt="Single Product"/>
+                                </figure>
+                                <figure class="product-thumb-item">
+                                    <img src="/assets/img/products/prod-2-1.jpg" alt="Single Product"/>
                                 </figure>
                             </div>
                         </div>
@@ -518,11 +386,11 @@
                     <div class="col-lg-7 col-md-6 m-auto">
                         <div class="single-product-content-wrapper">
                             <div class="single-product-details">
-                                <h2 class="product-name" name="proName">sweater</h2>
+                                <h2 class="product-name">Open-knit sweater</h2>
                                 <div class="prices-stock-status d-flex align-items-center justify-content-between">
                                     <div class="prices-group">
-                                        <del name="oldPrice" class="old-price">$50.00</del>
-                                        <span name="newPrice" class="price">$40.00</span>
+                                        <del class="old-price">$50.00</del>
+                                        <span class="price">$40.00</span>
                                     </div>
                                     <span class="stock-status"><i class="dl-icon-check-circle1"></i> In  Stock</span>
                                 </div>
@@ -536,7 +404,9 @@
                                     ut.</p>
 
                                 <div class="quantity-btn-group d-flex">
-
+                                    <div class="pro-qty">
+                                        <input type="text" id="quantity" value="1"/>
+                                    </div>
                                     <div class="list-btn-group">
                                         <a href="cart.html" class="btn btn-black">Add to Cart</a>
                                         <a href="wishlist.html" data-toggle="tooltip" data-placement="top"
@@ -572,44 +442,41 @@
     </div>
 </div>
 <!--== End Quick View Modal Wrapper ==-->
-<script th:inline="javascript" type="text/javascript">
-    function addCart(e) {
-        var id=$(e).attr("data-clothesId");
-        var price=$(e).attr("data-price");
-        var jsonData={
-            id:parseInt(id),
-            price:price
-        }
-        $.ajax({
-            url:'/commerce/addCart',
-            dataType:'text',
-            contentType:'application/json;charset=utf-8',
-            method:'post',
-            data:JSON.stringify(jsonData),
-            success:function (msg) {
-                alert(msg);
-                if(msg=="请先登录"){
-                    location.href='/user/myCount';
-                }
-            },
-            error:function (resp) {
-                alert("error...");
-            }
-        })
-    }
-        function showPic(e) {
-            var name=$(e).attr("data-name");
-            var picAddress1=$(e).attr("data-picAddress1");
-            var picAddress2=$(e).attr("data-picAddress2");
-            var oldPrice=$(e).attr("data-oldPrice");
-            var newPrice=$(e).attr("data-newPrice");
-            $("img[name='img1']").attr("src","/assets/img/products/"+picAddress1+".jpg");
-            $("img[name='img2']").attr("src","/assets/img/products/"+picAddress2+".jpg");
-            $("h2[name='proName']").html(name);
-            $("del[name='oldPrice']").html(oldPrice);
-            $("span[name='newPrice']").html(newPrice);
 
-        }
-</script>
+
+<!--=======================Javascript============================-->
+<!--=== Jquery Min Js ===-->
+<script src="/assets/js/vendor/jquery-3.3.1.min.js"></script>
+<!--=== Jquery Migrate Min Js ===-->
+<script src="/assets/js/vendor/jquery-migrate-1.4.1.min.js"></script>
+<!--=== Popper Min Js ===-->
+<script src="/assets/js/vendor/popper.min.js"></script>
+<!--=== Bootstrap Min Js ===-->
+<script src="/assets/js/vendor/bootstrap.min.js"></script>
+<!--=== Plugins Js ===-->
+<script src="/assets/js/plugins.js"></script>
+<!--=== Ajax Mail Js ===-->
+<script src="/assets/js/ajax-mail.js"></script>
+
+<!--=== Active Js ===-->
+<script src="/assets/js/active.min.js"></script>
+
+<!--=== Revolution Slider Js ===-->
+<script src="/assets/js/revslider/jquery.themepunch.tools.min.js"></script>
+<script src="/assets/js/revslider/jquery.themepunch.revolution.min.js"></script>
+
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+<script src="/assets/js/revslider/extensions/revolution.extension.actions.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.carousel.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.migration.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.navigation.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.parallax.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="/assets/js/revslider/extensions/revolution.extension.video.min.js"></script>
+
+
+<script src="/assets/js/revslider/revslider-active.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="meta description">
 
-    <title>Tracking Order :: Veera - Multipurpose eCommerce Bootstrap 4 Template</title>
+    <title>Contact Us :: Veera - Multipurpose eCommerce Bootstrap 4 Template</title>
 
         <!--=== Favicon ===-->
     <link rel="shortcut icon" href="http://demo.devitems.com/veera/veera/assets/img/favicon.ico" type="image/x-icon"/>
@@ -57,17 +57,16 @@
 <div th:replace="commons/bar :: topbar"></div><!--引入头部bar-->
 
 <!-- Start Page Header Wrapper -->
-<div class="page-header-wrapper layout-two">
+<div class="page-header-wrapper">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="page-header-content">
-                    <h2>Tracking Order</h2>
+                    <h2>Complete</h2>
                     <nav class="page-breadcrumb">
                         <ul class="d-flex justify-content-center">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="shop.html">Shop</a></li>
-                            <li><a href="shop.html" class="active">Tracking Order</a></li>
+                            <li><a href="/clothes/index">Home</a></li>
+                            <li><a href="#" class="active">Complete</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -77,37 +76,88 @@
 </div>
 <!-- End Page Header Wrapper -->
 
-<!--== Start Tracking Order Page Wrapper ==-->
-<div id="tracking-order-page-wrapper" class="pt-90 pt-md-60 pt-sm-50 pb-50 pb-md-20 pb-sm-10">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5 my-auto">
-                <div class="tracking-order-content">
-                    <p>To track your order please enter your Order ID in the box below and press the “Track” button. This was given to you on your receipt and in the confirmation email you should have received.</p>
+<!--== Start Contact Page Wrapper ==-->
+<div id="contact-page-wrapper" class="pt-90 pt-md-60 pt-sm-50 pb-50 pb-md-20 pb-sm-10">
+    <div class="contact-page-top-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 mt-sm-50">
+                    <div class="contact-info-wrapper contact-method">
+                        <h3>Products Info</h3>
+                        <div class="order-details-area-wrap">
+                            <h2>Your Order</h2>
+                            <div class="order-details-table table-responsive">
+                                <table id="table" class="table table-borderless">
+                                    <thead>
+                                    <tr>
+                                        <th>Products</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="cart-item" th:each="order:${orderList}">
+                                        <td><span class="product-title" th:text="${order.name}"></span> <span class="product-quantity">&#215; </span>
+
+                                            <span class="amount" th:text="${order.amount}"></span></td>
+                                        <td><span class="price1" th:text="${order.subtotal}"></span></td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr class="final-total">
+                                        <th>Total</th>
+                                        <td><span class="total-amount" id="td1"></span></td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-lg-6 ml-auto">
-                <div class="tracking-order-form">
-                    <form action="#" method="post">
-                        <div class="single-input-item">
-                            <label for="orderId">Order ID</label>
-                            <input type="text" id="orderId" placeholder="Enter Order ID" />
+                <div class="col-lg-5 col-md-6 mt-sm-50">
+                    <div class="contact-info-wrapper contact-method">
+                        <h3>Send To</h3>
+                        <div class="contact-info-content">
+                            <div class="single-contact-info">
+                                <h4>Address</h4>
+                                <p th:text="${userInfo.address}"></p>
+                            </div>
+
+                            <div class="single-contact-info">
+                                <h4>name</h4>
+                                <p th:text="${userInfo.name}"></p>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="single-contact-info">
+                                        <h4>Phone</h4>
+                                        <p th:text="${userInfo.phone}"></p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="single-contact-info mb-0">
+                                        <h4>Order Note</h4>
+                                        <p th:text="${userInfo.ordernote}"></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="single-input-item">
-                            <label for="billingEmail">Billing Email</label>
-                            <input type="text" id="billingEmail" placeholder="Email you Used During checkout." />
-                        </div>
-
-                        <button class="btn btn-black">Track Order</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="contact-page-map-area mt-90 mt-md-60 mt-sm-50">
+        <div class="map-area-wrapper">
+            <div id="map_content" data-lat="23.763491" data-lng="90.431167" data-zoom="6" data-maptitle="HasTech" data-mapaddress="Floor# 4, House# 5, Block# C </br> Banasree Main Rd, Dhaka">
+            </div>
+        </div>
+    </div>
 </div>
-<!--== End Tracking Order Page Wrapper ==-->
+<!--== End Contact Page Wrapper ==-->
 
 <!--== Start Footer Section ===-->
 <footer id="footer-area">
@@ -465,14 +515,12 @@
 <script src="/assets/js/plugins.js"></script>
 <!--=== Ajax Mail Js ===-->
 <script src="/assets/js/ajax-mail.js"></script>
-
 <!--=== Active Js ===-->
 <script src="/assets/js/active.min.js"></script>
 
 <!--=== Revolution Slider Js ===-->
 <script src="/assets/js/revslider/jquery.themepunch.tools.min.js"></script>
 <script src="/assets/js/revslider/jquery.themepunch.revolution.min.js"></script>
-
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
 <script src="/assets/js/revslider/extensions/revolution.extension.actions.min.js"></script>
 <script src="/assets/js/revslider/extensions/revolution.extension.carousel.min.js"></script>
@@ -483,8 +531,18 @@
 <script src="/assets/js/revslider/extensions/revolution.extension.parallax.min.js"></script>
 <script src="/assets/js/revslider/extensions/revolution.extension.slideanims.min.js"></script>
 <script src="/assets/js/revslider/extensions/revolution.extension.video.min.js"></script>
-
-
 <script src="/assets/js/revslider/revslider-active.js"></script>
+<script th:inline="javascript" type="text/javascript">
+    $(window).load(function(){
+        var total=0;
+        var arr = $('#table tbody tr td:nth-child(2)') //根据id依次找到表格中的td，而后取每列的第2个值
+            .map(function () { return $(this).children().text() }) // 使用 map 对每一个 td 进行处理，function为回调函数，返回每个元素的text
+            .get(); // 将对象集合转换为数组，得到arr数组
+        for(var i=0;i<arr.length;i++){
+            total+=parseInt(arr[i]);
+        }
+        $("#td1").text("￥"+total);
+    });
+</script>
 </body>
 </html>

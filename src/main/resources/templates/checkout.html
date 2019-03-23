@@ -30,7 +30,36 @@
     <link href="/assets/css/helper.min.css" rel="stylesheet">
     <!--=== Main Style CSS ===-->
     <link href="/assets/css/style.css" rel="stylesheet">
-    
+    <!--=======================Javascript============================-->
+    <!--=== Jquery Min Js ===-->
+    <script th:src="@{/assets/js/vendor/jquery-3.3.1.min.js}"></script>
+    <!--=== Jquery Migrate Min Js ===-->
+    <script th:src="@{/assets/js/vendor/jquery-migrate-1.4.1.min.js}"></script>
+    <!--=== Popper Min Js ===-->
+    <script src="/assets/js/vendor/popper.min.js"></script>
+    <!--=== Bootstrap Min Js ===-->
+    <script src="/assets/js/vendor/bootstrap.min.js"></script>
+
+    <!--=== Plugins Js ===-->
+    <script src="/assets/js/plugins.js"></script>
+    <!--=== Ajax Mail Js ===-->
+    <script src="/assets/js/ajax-mail.js"></script>
+    <!--=== Active Js ===-->
+    <script src="/assets/js/active.min.js"></script>
+    <!--=== Revolution Slider Js ===-->
+    <script src="/assets/js/revslider/jquery.themepunch.tools.min.js"></script>
+    <script src="/assets/js/revslider/jquery.themepunch.revolution.min.js"></script>
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+    <script src="/assets/js/revslider/extensions/revolution.extension.actions.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.migration.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="/assets/js/revslider/extensions/revolution.extension.video.min.js"></script>
+    <script src="/assets/js/revslider/revslider-active.js"></script>
     <!-- Modernizer JS -->
     <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
@@ -38,7 +67,6 @@
     <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
 <body class="preloader-active">
@@ -81,200 +109,37 @@
 <div id="checkout-page-wrapper" class="pt-90 pt-md-60 pt-sm-50 pb-50 pb-md-20 pb-sm-10">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="checkout-page-coupon-area">
-                    <!-- Checkout Coupon Accordion Start -->
-                    <div class="checkoutAccordion" id="checkOutAccordion">
-                        <div class="card">
-                            <h3><i class="fa fa-info-circle"></i> Have a Coupon? <span data-toggle="collapse"
-                                                                                       data-target="#couponaccordion">Click here to Enter your Code</span>
-                            </h3>
-                            <div id="couponaccordion" class="collapse" data-parent="#checkOutAccordion">
-                                <div class="card-body">
-                                    <div class="apply-coupon-wrapper">
-                                        <p>If you have a coupon code, please apply it below.</p>
-                                        <form action="#" method="post">
-                                            <input type="text" placeholder="Enter Your Coupon Code" required/>
-                                            <button class="btn btn-black">Apply Coupon</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Checkout Coupon Accordion End -->
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
             <div class="col-lg-6">
                 <!-- Checkout Form Area Start -->
                 <div class="checkout-billing-details-wrap">
                     <h2>Billing Details</h2>
                     <div class="billing-form-wrap">
                         <form action="#" method="post">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="single-input-item">
-                                        <label for="f_name" class="required">First Name</label>
-                                        <input type="text" id="f_name" placeholder="First Name" required />
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="single-input-item">
-                                        <label for="l_name" class="required">Last Name</label>
-                                        <input type="text" id="l_name" placeholder="Last Name" required />
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="single-input-item">
-                                <label for="email" class="required">Email Address</label>
-                                <input type="email" id="email" placeholder="Email Address" required />
+                                <label for="f_name" class="required">Name</label>
+                                <input type="text" id="f_name" placeholder="Name" required />
                             </div>
-
                             <div class="single-input-item">
-                                <label for="com-name">Company Name</label>
-                                <input type="text" id="com-name" placeholder="Company Name" />
-                            </div>
-
-                            <div class="single-input-item">
-                                <label for="country" class="required">Country</label>
-                                <select name="country" id="country">
-                                    <option value="Afghanistan">Afghanistan</option>
-                                    <option value="Albania">Albania</option>
-                                    <option value="Algeria">Algeria</option>
-                                    <option value="Armenia">Armenia</option>
-                                    <option value="Bangladesh">Bangladesh</option>
-                                    <option value="India">India</option>
-                                    <option value="Pakistan">Pakistan</option>
-                                    <option value="England">England</option>
-                                    <option value="London">London</option>
-                                    <option value="London">London</option>
-                                    <option value="Chaina">China</option>
+                                <label for="province" class="required">Province</label>
+                                <select name="province" id="province" onchange="showCity()">
+                                    <option name="pro" th:each="p:${province}" th:value="${p.pno}" th:text="${p.name}" ></option>
                                 </select>
                             </div>
-
+                            <div class="single-input-item">
+                                <label class="required">Town / City</label>
+                                <select name="town" id="town" >
+                                    <option >常州</option>
+                                    <option >徐州</option>
+                                </select>
+                            </div>
                             <div class="single-input-item">
                                 <label for="street-address" class="required">Street address</label>
-                                <input type="text" id="street-address" placeholder="Street address Line 1" required />
+                                <input type="text" id="street-address" placeholder="Street address" required />
                             </div>
-
-                            <div class="single-input-item">
-                                <input type="text"  placeholder="Street address Line 2 (Optional)" />
-                            </div>
-
-                            <div class="single-input-item">
-                                <label for="town" class="required">Town / City</label>
-                                <input type="text" id="town"  placeholder="Town / City" required />
-                            </div>
-
-                            <div class="single-input-item">
-                                <label for="state">State / Divition</label>
-                                <input type="text" id="state"  placeholder="State / Divition" />
-                            </div>
-
-                            <div class="single-input-item">
-                                <label for="postcode" class="required">Postcode / ZIP</label>
-                                <input type="text" id="postcode"  placeholder="Postcode / ZIP" required />
-                            </div>
-
                             <div class="single-input-item">
                                 <label for="phone">Phone</label>
                                 <input type="text" id="phone"  placeholder="Phone" />
                             </div>
-
-                            <div class="checkout-box-wrap">
-                                <div class="single-input-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="create_pwd">
-                                        <label class="custom-control-label" for="create_pwd">Create an account?</label>
-                                    </div>
-                                </div>
-                                <div class="account-create single-form-row">
-                                    <p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
-                                    <div class="single-input-item">
-                                        <label for="pwd" class="required">Account Password</label>
-                                        <input type="password" id="pwd"  placeholder="Account Password" required />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="checkout-box-wrap">
-                                <div class="single-input-item">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ship_to_different">
-                                        <label class="custom-control-label" for="ship_to_different">Ship to a different address?</label>
-                                    </div>
-                                </div>
-                                <div class="ship-to-different single-form-row">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="single-input-item">
-                                                <label for="f_name_2" class="required">First Name</label>
-                                                <input type="text" id="f_name_2" placeholder="First Name" required />
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="single-input-item">
-                                                <label for="l_name_2" class="required">Last Name</label>
-                                                <input type="text" id="l_name_2" placeholder="Last Name" required />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="single-input-item">
-                                        <label for="email_2" class="required">Email Address</label>
-                                        <input type="email" id="email_2" placeholder="Email Address" required />
-                                    </div>
-
-                                    <div class="single-input-item">
-                                        <label for="com-name_2">Company Name</label>
-                                        <input type="text" id="com-name_2" placeholder="Company Name" />
-                                    </div>
-
-                                    <div class="single-input-item">
-                                        <label for="country_2" class="required">Country</label>
-                                        <select name="country" id="country_2">
-                                            <option value="Bangladesh">Bangladesh</option>
-                                            <option value="India">India</option>
-                                            <option value="Pakistan">Pakistan</option>
-                                            <option value="England">England</option>
-                                            <option value="London">London</option>
-                                            <option value="London">London</option>
-                                            <option value="Chaina">Chaina</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="single-input-item">
-                                        <label for="street-address_2" class="required">Street address</label>
-                                        <input type="text" id="street-address_2" placeholder="Street address Line 1" required />
-                                    </div>
-
-                                    <div class="single-input-item">
-                                        <input type="text"  placeholder="Street address Line 2 (Optional)" />
-                                    </div>
-
-                                    <div class="single-input-item">
-                                        <label for="town_2" class="required">Town / City</label>
-                                        <input type="text" id="town_2"  placeholder="Town / City" required />
-                                    </div>
-
-                                    <div class="single-input-item">
-                                        <label for="state_2">State / Divition</label>
-                                        <input type="text" id="state_2"  placeholder="State / Divition" />
-                                    </div>
-
-                                    <div class="single-input-item">
-                                        <label for="postcode_2" class="required">Postcode / ZIP</label>
-                                        <input type="text" id="postcode_2"  placeholder="Postcode / ZIP" required />
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="single-input-item">
                                 <label for="ordernote">Order Note</label>
                                 <textarea name="ordernote" id="ordernote" cols="30" rows="3" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
@@ -290,7 +155,7 @@
                     <h2>Your Order</h2>
 
                     <div class="order-details-table table-responsive">
-                        <table class="table table-borderless">
+                        <table id="table" class="table table-borderless">
                             <thead>
                                 <tr>
                                     <th>Products</th>
@@ -298,60 +163,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="cart-item">
-                                    <td><span class="product-title">Ruffled cotton top</span> <span class="product-quantity">&#215;  1</span></td>
-                                    <td>$39.99</td>
-                                </tr>
-                                <tr class="cart-item">
-                                    <td><span class="product-title">Floral Print Voile Bodysuit</span> <span class="product-quantity">&#215;  2</span></td>
-                                    <td>$29.99</td>
-                                </tr>
-                                <tr class="cart-item">
-                                    <td><span class="product-title">Metallic cotton dress</span> <span class="product-quantity">&#215;  1</span></td>
-                                    <td>$69.99</td>
-                                </tr>
-                                <tr class="cart-item">
-                                    <td><span class="product-title">Ribbed jersey dress</span> <span class="product-quantity">&#215;  1</span></td>
-                                    <td>$39.99</td>
-                                </tr>
-                                <tr class="cart-item">
-                                    <td><span class="product-title">Metallic cotton dress</span> <span class="product-quantity">&#215;  1</span></td>
-                                    <td>$69.99</td>
+                                <tr class="cart-item" th:each="order:${orderList}">
+                                    <td><span class="product-title" th:text="${order.name}"></span> <span class="product-quantity">&#215; </span>
+
+                                    <span class="amount" th:text="${order.amount}"></span></td>
+                                    <td><span class="price1" th:text="${order.subtotal}"></span></td>
                                 </tr>
                             </tbody>
                             <tfoot>
                                 <tr class="cart-subtotal">
                                     <th>Subtotal</th>
-                                    <td>$309.00</td>
-                                </tr>
-                                <tr class="shipping">
-                                    <th>Shipping</th>
-                                    <td>
-                                        <ul class="shipping-method">
-                                            <li>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" id="flat_shipping" name="shipping_method" class="custom-control-input" checked />
-                                                    <label class="custom-control-label" for="flat_shipping">Flat Rate : $10</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" id="free_shipping" name="shipping_method" class="custom-control-input" />
-                                                    <label class="custom-control-label" for="free_shipping">Free Shipping</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" id="cod_shipping" name="shipping_method" class="custom-control-input" />
-                                                    <label class="custom-control-label" for="cod_shipping">Cash on Delivery</label>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </td>
+                                    <td id="td1"></td>
                                 </tr>
                                 <tr class="final-total">
                                     <th>Total</th>
-                                    <td><span class="total-amount">$289.93</span></td>
+                                    <td><span class="total-amount" id="td2"></span></td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -360,12 +186,7 @@
                     <div class="order-details-footer">
                         <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our
                             <a href="#" class="text-danger">privacy policy</a>.</p>
-                        <div class="custom-control custom-checkbox mt-10">
-                            <input type="checkbox" id="privacy" class="custom-control-input" required />
-                            <label for="privacy" class="custom-control-label">I have read and agree to the website terms and conditions</label>
-                        </div>
-
-                        <button class="btn btn-full btn-black mt-26">Place Order</button>
+                        <button onclick="placeOrder()" class="btn btn-full btn-black mt-26">Place Order</button>
                     </div>
                 </div>
             </div>
@@ -715,41 +536,85 @@
     </div>
 </div>
 <!--== End Quick View Modal Wrapper ==-->
+<script th:inline="javascript" type="text/javascript">
+    $(window).load(function(){
+        var total=0;
+        var arr = $('#table tbody tr td:nth-child(2)') //根据id依次找到表格中的td，而后取每列的第2个值
+            .map(function () { return $(this).children().text() }) // 使用 map 对每一个 td 进行处理，function为回调函数，返回每个元素的text
+            .get(); // 将对象集合转换为数组，得到arr数组
+        for(var i=0;i<arr.length;i++){
+            total+=parseInt(arr[i]);
+        }
+        $("#td1").text("￥"+total);
+        $("#td2").text("￥"+total);
+    });
 
+    $("input[name='shipping_method']").change(function () {
+        var val=$('input:radio[name="shipping_method"]:checked').val();
+        var total=0;
+        var arr = $('#table tbody tr td:nth-child(2)')
+            .map(function () { return $(this).children().text() })
+            .get();
+        for(var i=0;i<arr.length;i++){
+            total+=parseInt(arr[i]);
+        }
+        $("#td2").text("￥"+(total+parseInt(val)));
+    })
 
-<!--=======================Javascript============================-->
-<!--=== Jquery Min Js ===-->
-<script src="/assets/js/vendor/jquery-3.3.1.min.js"></script>
-<!--=== Jquery Migrate Min Js ===-->
-<script src="/assets/js/vendor/jquery-migrate-1.4.1.min.js"></script>
-<!--=== Popper Min Js ===-->
-<script src="/assets/js/vendor/popper.min.js"></script>
-<!--=== Bootstrap Min Js ===-->
-<script src="/assets/js/vendor/bootstrap.min.js"></script>
-<!--=== Plugins Js ===-->
-<script src="/assets/js/plugins.js"></script>
-<!--=== Ajax Mail Js ===-->
-<script src="/assets/js/ajax-mail.js"></script>
-
-<!--=== Active Js ===-->
-<script src="/assets/js/active.min.js"></script>
-
-<!--=== Revolution Slider Js ===-->
-<script src="/assets/js/revslider/jquery.themepunch.tools.min.js"></script>
-<script src="/assets/js/revslider/jquery.themepunch.revolution.min.js"></script>
-
-<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-<script src="/assets/js/revslider/extensions/revolution.extension.actions.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.carousel.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.kenburn.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.layeranimation.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.migration.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.navigation.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.parallax.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.slideanims.min.js"></script>
-<script src="/assets/js/revslider/extensions/revolution.extension.video.min.js"></script>
-
-
-<script src="/assets/js/revslider/revslider-active.js"></script>
+   function showCity() {
+        var pno=$("#province option:selected").val();
+        $.ajax({
+            url:'/commerce/city',
+            dataType:'json',
+            contentType:'application/json;charset=utf-8',
+            method:'post',
+            data:pno,
+            success:function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    $("select[name='town']").append("<option>"+data[i].name+"</option>");
+                }
+                $("#town").show();
+            },
+            error:function (resp) {
+                alert("error...");
+            }
+        })
+    }
+ function placeOrder() {
+     var total=0;
+     var arr = $('#table tbody tr td:nth-child(2)') //根据id依次找到表格中的td，而后取每列的第2个值
+         .map(function () { return $(this).children().text() }) // 使用 map 对每一个 td 进行处理，function为回调函数，返回每个元素的text
+         .get(); // 将对象集合转换为数组，得到arr数组
+     for(var i=0;i<arr.length;i++){
+         total+=parseInt(arr[i]);
+     }
+     var name= $("#f_name").val();
+     var province=$("#province option:selected").text();
+     var city=$("#town option:selected").text();
+     var street=$("#street-address").val();
+     var phone=$("#phone").val();
+     var ordernote=$("#ordernote").val();
+     var address=province+" "+city+" "+street;
+     var jsonData={
+         name:name,
+         phone:phone,
+         address:address,
+         ordernote:ordernote
+     }
+     $.ajax({
+         url:'/commerce/operateOrder',
+         dataType:'text',
+         contentType:'application/json;charset=utf-8',
+         method:'post',
+         data:JSON.stringify(jsonData),
+         success:function (data) {
+             location.href='/commerce/payFor?price='+total;
+         },
+         error:function (resp) {
+             alert("error...");
+         }
+     })
+ }
+</script>
 </body>
 </html>

@@ -11,6 +11,8 @@ public class Clothes {
     private Double newPrice;
     private Double rating;
     private Double costEffective;
+    private Integer amount;
+    private Double subtotal;
 
     public Integer getId() {
         return id;
@@ -96,7 +98,23 @@ public class Clothes {
         return costEffective;
     }
 
-    public void setCostEffective() {
-        this.costEffective = this.newPrice/this.rating;
+    public void setCostEffective(Double costEffective) {
+        this.costEffective = costEffective;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    public Double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(Double subtotal) {
+        this.subtotal = subtotal;
     }
 }

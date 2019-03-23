@@ -1,12 +1,10 @@
 package com.syw.showmeshopsyw.controller;
 
 import com.syw.showmeshopsyw.entity.User;
-import com.syw.showmeshopsyw.mapper.UserMapper;
 import com.syw.showmeshopsyw.service.UserService;
 import com.syw.showmeshopsyw.util.ResultBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -25,7 +23,7 @@ public class UserController {
         }catch (Exception e) {
             return "redirect:/user/myCount";
         }
-        return "redirect:/clothes/index";
+        return "redirect:/shop/fullWide?pageNum=1";
     }
     @RequestMapping("register")
     public String register(User user){
