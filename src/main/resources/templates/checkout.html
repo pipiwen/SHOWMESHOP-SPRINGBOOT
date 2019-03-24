@@ -570,6 +570,7 @@
             method:'post',
             data:pno,
             success:function (data) {
+                $("#town").html("");//清空之前追加的option
                 for (var i = 0; i < data.length; i++) {
                     $("select[name='town']").append("<option>"+data[i].name+"</option>");
                 }
