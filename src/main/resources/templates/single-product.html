@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="meta description">
 
-    <title>Checkout :: Veera - Multipurpose eCommerce Bootstrap 4 Template</title>
+    <title>Single Product :: Veera - Multipurpose eCommerce Bootstrap 4 Template</title>
 
         <!--=== Favicon ===-->
     <link rel="shortcut icon" href="http://demo.devitems.com/veera/veera/assets/img/favicon.ico" type="image/x-icon"/>
@@ -67,6 +67,7 @@
     <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 
 <body class="preloader-active">
@@ -83,18 +84,17 @@
 <!--== Start Header Area ===-->
 <div th:replace="commons/bar :: topbar"></div><!--引入头部bar-->
 <!--== End Header Area ===-->
-
 <!-- Start Page Header Wrapper -->
 <div class="page-header-wrapper">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="page-header-content">
-                    <h2>Checkout</h2>
+                    <h2>Single Product</h2>
                     <nav class="page-breadcrumb">
                         <ul class="d-flex justify-content-center">
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="shop.html" class="active">Checkout</a></li>
+                            <li><a href="shop.html" class="active">Single Product</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -104,107 +104,159 @@
 </div>
 <!-- End Page Header Wrapper -->
 
-<!--== Start Checkout Page Wrapper ==-->
-<div id="checkout-page-wrapper" class="pt-90 pt-md-60 pt-sm-50 pb-50 pb-md-20 pb-sm-10">
-    <div class="container">
+<!--== Start Single Product Page Wrapper ==-->
+<div id="single-product-page" class="pt-90 pt-md-60 pt-sm-50 pb-92 pb-md-58 pb-sm-50">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-6">
-                <!-- Checkout Form Area Start -->
-                <div class="checkout-billing-details-wrap">
-                    <h2>Billing Details</h2>
-                    <div class="billing-form-wrap">
-                        <form action="#" method="post">
-                            <div class="single-input-item">
-                                <label for="f_name" class="required">Name</label>
-                                <input type="text" id="f_name" placeholder="Name" required />
-                            </div>
-                            <div class="single-input-item">
-                                <label for="province" class="required">Province</label>
-                                <select name="province" id="province" onchange="showCity()">
-                                    <option name="pro" th:each="p:${province}" th:value="${p.pno}" th:text="${p.name}" ></option>
-                                </select>
-                            </div>
-                            <div class="single-input-item">
-                                <label class="required">Town / City</label>
-                                <select name="town" id="town" >
-                                    <option>-Please choose city-</option>
-                                </select>
-                            </div>
-                            <div class="single-input-item">
-                                <label for="street-address" class="required">Street address</label>
-                                <input type="text" id="street-address" placeholder="Street address" required />
-                            </div>
-                            <div class="single-input-item">
-                                <label for="phone">Phone</label>
-                                <input type="text" id="phone"  placeholder="Phone" />
-                            </div>
-                            <div class="single-input-item">
-                                <label for="ordernote">Order Note</label>
-                                <textarea name="ordernote" id="ordernote" cols="30" rows="3" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-                            </div>
-                        </form>
+            <!-- Start Single Product Thumbnail -->
+            <div class="col-xl-7 col-lg-6">
+                <div class="single-product-thumb-wrap p-0 pb-sm-30 pb-md-30">
+                    <!-- Product Thumbnail Large View -->
+                    <div class="product-thumb-large-view">
+                        <div class="product-thumb-carousel">
+                            <figure class="product-thumb-item">
+                                <img th:src="@{'/assets/img/products/'+${clothes.picAddress1+'.jpg'}}" alt="Single Product"/>
+                            </figure>
+                            <figure class="product-thumb-item">
+                                <img th:src="@{'/assets/img/products/'+${clothes.picAddress2+'.jpg'}}" alt="Single Product"/>
+                            </figure>
+
+                        </div>
+                        <!-- Product Thumb Button  -->
+                        <div class="product-thumb-btns">
+                            <button class="btn-zoom-popup"><i class="dl-icon-zoom-in"></i></button>
+                            <a href="https://player.vimeo.com/video/225547551?autoplay=1&title=0&byline=0&portrait=0"
+                               class="btn-video-popup"><i class="dl-icon-format-video"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Product Thumbnail Nav -->
+                    <div class="product-thumbnail-nav">
+                        <figure class="product-thumb-item">
+                            <img th:src="@{'/assets/img/products/'+${clothes.picAddress1+'.jpg'}}" alt="Single Product"/>
+                        </figure>
+                        <figure class="product-thumb-item">
+                            <img th:src="@{'/assets/img/products/'+${clothes.picAddress2+'.jpg'}}" alt="Single Product"/>
+                        </figure>
                     </div>
                 </div>
             </div>
+            <!-- End Single Product Thumbnail -->
 
-            <div class="col-lg-6 col-xl-5 ml-auto">
-                <!-- Checkout Page Order Details -->
-                <div class="order-details-area-wrap">
-                    <h2>Your Order</h2>
+            <!-- Start Single Product Content -->
+            <div class="col-xl-5 col-lg-6">
+                <div class="single-product-content-wrapper">
+                    <div class="single-product-details">
+                        <h2 class="product-name" th:text="${clothes.name}"></h2>
+                        <div class="prices-stock-status d-flex align-items-center justify-content-between">
+                            <div class="prices-group">
+                                <del class="old-price" th:text="${clothes.oldPrice}"></del>
+                                <span class="price" th:text="${clothes.newPrice}"></span>
+                            </div>
+                            <span class="stock-status"><i class="dl-icon-check-circle1"></i> In  Stock</span>
+                        </div>
+                        <p class="product-desc">Ut enim added minim veniam, quis nostrud exercitation ullamco ommodo
+                            consequat. Duis aute irure dolor in reprehenderit dolore eu fugiat nulla pariatur. Excepteur
+                            sint occaecat cupidatat non proident. Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Ab dolorem eum labore minima possimus quaerat quod recusandae repellat sequi ut.</p>
 
-                    <div class="order-details-table table-responsive">
-                        <table id="table" class="table table-borderless">
-                            <thead>
-                                <tr>
-                                    <th>Products</th>
-                                    <th>Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="cart-item" th:each="order:${orderList}">
-                                    <td><span class="product-title" th:text="${order.name}"></span> <span class="product-quantity">&#215; </span>
+                        <div class="quantity-btn-group d-flex">
+                            <div class="pro-qty">
+                                <input type="text" id="quantity" value="1"/>
+                            </div>
+                            <div class="list-btn-group">
+                                <a onclick="addCart(this)"
+                                   th:attr="data-clothesId=${clothes.id},data-price=${clothes.newPrice}">
+                                    <button class="btn btn-black">Add to Cart</button></a>
+                            </div>
+                        </div>
+                    </div>
 
-                                    <span class="amount" th:text="${order.amount}"></span></td>
-                                    <td><span class="price1" th:text="${order.subtotal}"></span></td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr class="cart-subtotal">
-                                    <th>Subtotal</th>
-                                    <td id="td1"></td>
-                                </tr>
-                                <tr class="shipping">
-                                    <th>Shipping</th>
-                                    <td>
-                                        <ul class="shipping-method">
-                                            <li>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" id="free_shipping" name="shipping_method" class="custom-control-input" checked />
-                                                    <label class="custom-control-label" for="free_shipping">Free Shipping</label>
+                    <div class="product-description-review">
+                        <!-- Product Description Tab Menu -->
+                        <ul class="nav nav-tabs desc-review-tab-menu" id="desc-review-tab" role="tablist">
+                            <li>
+                                <a class="active" id="desc-tab" data-toggle="tab" href="#descriptionContent" role="tab">Description</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="descriptionContent">
+                                <div class="description-content">
+                                    <p class="m-0">Donec venenatis tellus ut nisl rutrum luctus. Quisque euismod rutrum
+                                        nibh, vel euismod augue iaculis eget. Orci varius natoque penatibus et magnis
+                                        dis parturient montes, nascetur ridiculus mus. Fusce magna nunc, iaculis sit
+                                        amet eros eu, accumsan accumsan lacus. Aliquam viverra tellus quis ligula
+                                        rutrum, ac ornare lorem rutrum. Suspendisse sagittis nisl sit amet nibh euismod
+                                        con.</p>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="reviewContent">
+                                <div class="product-ratting-wrap">
+                                    <div class="pro-avg-ratting">
+                                        <h4>4.5 <span>(Overall)</span></h4>
+                                        <span>Based on 9 Comments</span>
+                                    </div>
+                                    <div class="rattings-wrapper">
+
+                                        <div class="sin-rattings">
+                                            <div class="ratting-author">
+                                                <h3>Cristopher Lee</h3>
+                                                <div class="ratting-star">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <span>(5)</span>
                                                 </div>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <tr class="final-total">
-                                    <th>Total</th>
-                                    <td><span class="total-amount" id="td2"></span></td>
-                                </tr>
-                            </tfoot>
-                        </table>
+                                            </div>
+                                            <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+                                                sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est,
+                                                qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="order-details-footer">
-                        <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our
-                            <a href="#" class="text-danger">privacy policy</a>.</p>
-                        <button onclick="placeOrder()" class="btn btn-full btn-black mt-26">Place Order</button>
+                    <div class="single-product-footer d-block d-sm-flex justify-content-between">
+                        <div class="prod-footer-left mb-xs-26">
+                            <span class="sku mb-6 d-block">SKU: 251</span>
+                            <ul class="prod-footer-list">
+                                <li class="list-name">Categories:</li>
+                                <li><a href="#">New in</a></li>
+                                <li><a href="#">Accessories</a></li>
+                                <li><a href="#">Clothing</a></li>
+                                <li><a href="#">Women</a></li>
+                            </ul>
+                            <ul class="prod-footer-list">
+                                <li class="list-name">Tags:</li>
+                                <li><a href="#">Dress</a></li>
+                                <li><a href="#">Fashion</a></li>
+                                <li><a href="#">Women</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="prod-footer-right">
+                            <dl class="social-share">
+                                <dt>Share with</dt>
+                                <dd><a href="#"><i class="fa fa-facebook"></i></a></dd>
+                                <dd><a href="#"><i class="fa fa-twitter"></i></a></dd>
+                                <dd><a href="#"><i class="fa fa-pinterest-p"></i></a></dd>
+                                <dd><a href="#"><i class="fa fa-google-plus"></i></a></dd>
+                            </dl>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- End Single Product Content -->
         </div>
     </div>
 </div>
-<!--== End Checkout Page Wrapper ==-->
+<!--== End Single Product Page Wrapper ==-->
 
 <!--== Start Footer Section ===-->
 <footer id="footer-area">
@@ -316,7 +368,7 @@
                 </div>
 
                 <div class="col-sm-4 col-lg-3 m-auto order-2 text-center text-md-right">
-                    <img src="/assets/img/payments.png" alt="Payment Method"/>
+                    <img src="assets/img/payments.png" alt="Payment Method"/>
                 </div>
             </div>
         </div>
@@ -324,21 +376,6 @@
     <!-- End Footer Bottom Area -->
 </footer>
 <!--== End Footer Section ===-->
-
-<!--== Start Search box Wrapper ==-->
-<div class="modalSearchBox" id="search-box-popup">
-    <div class="modaloverlay"></div>
-    <div class="search-box-wrapper">
-        <p>Start typing and press Enter to search</p>
-        <div class="search-box-form">
-            <form action="#" method="POST" class="search-form-area">
-                <input type="search"  name="search" id="search" placeholder="Search entire store" />
-                <button type="submit" class="btn-search"><i class="dl-icon-search10"></i></button>
-            </form>
-        </div>
-    </div>
-</div>
-<!--== End Search box Wrapper ==-->
 
 <!--== Start Mini Cart Wrapper ==-->
 <div class="mfp-hide modal-minicart" id="miniCart-popup">
@@ -348,7 +385,7 @@
             <!-- Start Single Product -->
             <div class="single-product-item d-flex">
                 <figure class="product-thumb">
-                    <a href="single-product.html"><img src="/assets/img/products/prod-1-1.jpg" alt="Product"></a>
+                    <a href="single-product.html"><img src="assets/img/products/prod-1-1.jpg" alt="Product"></a>
                 </figure>
                 <div class="product-details">
                     <h2 class="product-title"><a href="single-product.html">Stripe textured dress</a></h2>
@@ -365,7 +402,7 @@
             <!-- Start Single Product -->
             <div class="single-product-item d-flex">
                 <figure class="product-thumb">
-                    <a href="single-product.html"><img src="/assets/img/products/prod-2-1.jpg" alt="Product"></a>
+                    <a href="single-product.html"><img src="assets/img/products/prod-2-1.jpg" alt="Product"></a>
                 </figure>
                 <div class="product-details">
                     <h2 class="product-title"><a href="single-product.html">Tassels embroidered dress</a></h2>
@@ -382,7 +419,7 @@
             <!-- Start Single Product -->
             <div class="single-product-item d-flex">
                 <figure class="product-thumb">
-                    <a href="single-product.html"><img src="/assets/img/products/prod-3-1.jpg" alt="Product"></a>
+                    <a href="single-product.html"><img src="assets/img/products/prod-3-1.jpg" alt="Product"></a>
                 </figure>
                 <div class="product-details">
                     <h2 class="product-title"><a href="single-product.html">Open-knit sweater</a></h2>
@@ -399,7 +436,7 @@
             <!-- Start Single Product -->
             <div class="single-product-item d-flex">
                 <figure class="product-thumb">
-                    <a href="single-product.html"><img src="/assets/img/products/prod-4-1.jpg" alt="Product"></a>
+                    <a href="single-product.html"><img src="assets/img/products/prod-4-1.jpg" alt="Product"></a>
                 </figure>
                 <div class="product-details">
                     <h2 class="product-title"><a href="single-product.html">Open-knit sweater</a></h2>
@@ -438,7 +475,7 @@
             </ul>
         </nav>
         <div class="offside-text">
-            <a href="#"><img src="/assets/img/payments.png" alt="Payment Method"></a>
+            <a href="#"><img src="assets/img/payments.png" alt="Payment Method"></a>
             <p>Pellentesque mollis nec orci id tincidunt. Sed mollis risus eu nisi aliquet, sit amet fermentum justo
                 dapibus.</p>
             <a href="#">(+612) 2531 5600</a>
@@ -458,175 +495,34 @@
     </div>
 </div>
 <!--== End Left Offside Wrapper ==-->
-
-<!--== Start Quick View Modal Wrapper ==-->
-<div class="modal" id="quickViewModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"><i class="dl-icon-close"></i></span>
-            </button>
-            <div class="modal-body">
-                <div class="row">
-                    <!-- Start Single Product Thumbnail -->
-                    <div class="col-lg-5 col-md-6">
-                        <div class="single-product-thumb-wrap p-0 pb-sm-30 pb-md-30">
-                            <!-- Product Thumbnail Large View -->
-                            <div class="quciview-product-thumb-carousel">
-                                <figure class="product-thumb-item">
-                                    <img src="/assets/img/products/prod-1-1.jpg" alt="Single Product"/>
-                                </figure>
-                                <figure class="product-thumb-item">
-                                    <img src="/assets/img/products/prod-1-2.jpg" alt="Single Product"/>
-                                </figure>
-                                <figure class="product-thumb-item">
-                                    <img src="/assets/img/products/prod-2-1.jpg" alt="Single Product"/>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Product Thumbnail -->
-
-                    <!-- Start Single Product Content -->
-                    <div class="col-lg-7 col-md-6 m-auto">
-                        <div class="single-product-content-wrapper">
-                            <div class="single-product-details">
-                                <h2 class="product-name">Open-knit sweater</h2>
-                                <div class="prices-stock-status d-flex align-items-center justify-content-between">
-                                    <div class="prices-group">
-                                        <del class="old-price">$50.00</del>
-                                        <span class="price">$40.00</span>
-                                    </div>
-                                    <span class="stock-status"><i class="dl-icon-check-circle1"></i> In  Stock</span>
-                                </div>
-                                <p class="product-desc">Ut enim added minim veniam, quis nostrud exercitation ullamco
-                                    ommodo
-                                    consequat. Duis aute irure dolor in reprehenderit dolore eu fugiat nulla pariatur.
-                                    Excepteur
-                                    sint occaecat cupidatat non proident. Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing
-                                    elit. Ab dolorem eum labore minima possimus quaerat quod recusandae repellat sequi
-                                    ut.</p>
-
-                                <div class="quantity-btn-group d-flex">
-                                    <div class="pro-qty">
-                                        <input type="text" id="quantity" value="1"/>
-                                    </div>
-                                    <div class="list-btn-group">
-                                        <a href="cart.html" class="btn btn-black">Add to Cart</a>
-                                        <a href="wishlist.html" data-toggle="tooltip" data-placement="top"
-                                           title="Add to wishlist"><i class="dl-icon-heart2"></i></a>
-                                        <a href="compare.html" data-toggle="tooltip" data-placement="top"
-                                           title="Add to Compare"><i class="dl-icon-compare2"></i></a>
-                                    </div>
-                                </div>
-
-                                <div class="find-store-delivery">
-                                    <a href="#"><i class="fa fa-map-marker"></i> Find store near you</a>
-                                    <a href="#"><i class="fa fa-exchange"></i> Delivery and return</a>
-                                </div>
-                            </div>
-
-                            <div class="single-product-footer mt-20 pt-20">
-                                <div class="prod-footer-right">
-                                    <dl class="social-share">
-                                        <dt>Share with</dt>
-                                        <dd><a href="#"><i class="fa fa-facebook"></i></a></dd>
-                                        <dd><a href="#"><i class="fa fa-twitter"></i></a></dd>
-                                        <dd><a href="#"><i class="fa fa-pinterest-p"></i></a></dd>
-                                        <dd><a href="#"><i class="fa fa-google-plus"></i></a></dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Product Content -->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--== End Quick View Modal Wrapper ==-->
 <script th:inline="javascript" type="text/javascript">
-    $(window).load(function(){
-        var total=0;
-        var arr = $('#table tbody tr td:nth-child(2)') //根据id依次找到表格中的td，而后取每列的第2个值
-            .map(function () { return $(this).children().text() }) // 使用 map 对每一个 td 进行处理，function为回调函数，返回每个元素的text
-            .get(); // 将对象集合转换为数组，得到arr数组
-        for(var i=0;i<arr.length;i++){
-            total+=parseInt(arr[i]);
+    function addCart(e) {
+        var id=$(e).attr("data-clothesId");
+        var price=$(e).attr("data-price");
+        var amount=document.getElementById("quantity").value;
+        console.info("amount: "+amount);
+        var jsonData={
+            id:parseInt(id),
+            price:price,
+            amount:amount
         }
-        $("#td1").text("￥"+total);
-        $("#td2").text("￥"+total);
-    });
-
-    $("input[name='shipping_method']").change(function () {
-        var val=$('input:radio[name="shipping_method"]:checked').val();
-        var total=0;
-        var arr = $('#table tbody tr td:nth-child(2)')
-            .map(function () { return $(this).children().text() })
-            .get();
-        for(var i=0;i<arr.length;i++){
-            total+=parseInt(arr[i]);
-        }
-        $("#td2").text("￥"+(total+parseInt(val)));
-    })
-
-   function showCity() {
-        var pno=$("#province option:selected").val();
         $.ajax({
-            url:'/commerce/city',
-            dataType:'json',
+            url:'/commerce/addCart',
+            dataType:'text',
             contentType:'application/json;charset=utf-8',
             method:'post',
-            data:pno,
-            success:function (data) {
-                $("#town").html("");//清空之前追加的option
-                for (var i = 0; i < data.length; i++) {
-                    $("select[name='town']").append("<option>"+data[i].name+"</option>");
+            data:JSON.stringify(jsonData),
+            success:function (msg) {
+                alert(msg);
+                if(msg=="请先登录"){
+                    location.href='/user/myCount';
                 }
-                $("#town").show();
             },
             error:function (resp) {
                 alert("error...");
             }
         })
     }
- function placeOrder() {
-     var total=0;
-     var arr = $('#table tbody tr td:nth-child(2)') //根据id依次找到表格中的td，而后取每列的第2个值
-         .map(function () { return $(this).children().text() }) // 使用 map 对每一个 td 进行处理，function为回调函数，返回每个元素的text
-         .get(); // 将对象集合转换为数组，得到arr数组
-     for(var i=0;i<arr.length;i++){
-         total+=parseInt(arr[i]);
-     }
-     var name= $("#f_name").val();
-     var province=$("#province option:selected").text();
-     var city=$("#town option:selected").text();
-     var street=$("#street-address").val();
-     var phone=$("#phone").val();
-     var ordernote=$("#ordernote").val();
-     var address=province+" "+city+" "+street;
-     var jsonData={
-         name:name,
-         phone:phone,
-         address:address,
-         ordernote:ordernote
-     }
-     $.ajax({
-         url:'/commerce/operateOrder',
-         dataType:'text',
-         contentType:'application/json;charset=utf-8',
-         method:'post',
-         data:JSON.stringify(jsonData),
-         success:function (data) {
-             location.href='/commerce/payFor?price='+total;
-         },
-         error:function (resp) {
-             alert("error...");
-         }
-     })
- }
 </script>
 </body>
 </html>

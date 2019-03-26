@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Map;
+
 @Controller
 @RequestMapping("user")
 public class UserController {
@@ -26,10 +29,16 @@ public class UserController {
         return "redirect:/shop/fullWide?pageNum=1";
     }
     @RequestMapping("register")
-    public String register(User user){
-        ResultBean resultBean=new ResultBean();
-        userService.register(user);
-        resultBean.setMsg("注册成功！");
-        return "redirect:/clothes/index";
+    @ResponseBody
+    public String register(@RequestBody Map<String,Object>jsonData){
+        String username=(String) jsonData.get("username");
+        List<User> userList=userService.findAllUser();
+        for(User u:userList){
+            if (u.getUsername().equals(username)){
+                return "用户名已存在";
+            }
+        }
+        userService.register(jsonData);
+        return "注册成功";
     }
 }

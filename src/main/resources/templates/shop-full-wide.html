@@ -113,9 +113,7 @@
                         <p>Showing 1–12 of 25 results</p>
                         <ul class="product-show-quantity nav mt-xs-14">
                             <li>Show</li>
-                            <li><a href="#" class="active">12</a></li>
-                            <li><a href="#">15</a></li>
-                            <li><a href="#">30</a></li>
+                            <li><a href="#" class="active">8</a></li>
                         </ul>
                     </div>
 
@@ -127,11 +125,9 @@
                             <li class="dropdown-show sort-by">
                                 <button class="arrow-toggle">Sort By</button>
                                 <ul class="dropdown-nav">
-                                    <li><a href="#" class="active">Sort by Newest</a></li>
-                                    <li><a href="#">Sort by Popularity</a></li>
-                                    <li><a href="#">Sort by Average Rating</a></li>
-                                    <li><a href="#">Sort by Price: Low to High</a></li>
-                                    <li><a href="#">Sort by Price: High to Low</a></li>
+                                    <li><a href="/shop/byCondition?pageNum=1&condition=rating DESC">Sort by Average Rating</a></li>
+                                    <li><a href="/shop/byCondition?pageNum=1&condition=newprice">Sort by Price: Low to High</a></li>
+                                    <li><a href="/shop/byCondition?pageNum=1&condition=newprice DESC">Sort by Price: High to Low</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -144,47 +140,20 @@
                     <div class="product-filter-content d-md-flex justify-content-between">
                         <!--  Start Single Filter Item -->
                         <div class="single-filter-item-wrap">
-                            <h3 class="filter-item-title">Sort By</h3>
-                            <div class="filter-item-body">
-                                <ul class="filter-item-list">
-                                    <li><a href="#" class="active">Sort by Newest</a></li>
-                                    <li><a href="#">Sort by Popularity</a></li>
-                                    <li><a href="#">Sort by Average Rating</a></li>
-                                    <li><a href="#">Sort by Price: Low to High</a></li>
-                                    <li><a href="#">Sort by Price: High to Low</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--  End Single Filter Item -->
-
-                        <!--  Start Single Filter Item -->
-                        <div class="single-filter-item-wrap">
                             <h3 class="filter-item-title">By Price</h3>
                             <div class="filter-item-body">
                                 <ul class="filter-item-list">
-                                    <li><a href="#">$20.00 - $30.00</a></li>
-                                    <li><a href="#">$31.00 - $40.00</a></li>
-                                    <li><a href="#">$41.00 - $50.00</a></li>
-                                    <li><a href="#">$51.00 - $60.00</a></li>
-                                    <li><a href="#">$61.00 - $70.00</a></li>
+                                    <li><a href="/shop/byPrice?pageNum=1&condition=50.00 and 100.00">￥50.00 - ￥100.00</a></li>
+                                    <li><a href="/shop/byPrice?pageNum=1&condition=100.00 and 150.00">￥100.00 - ￥150.00</a></li>
+                                    <li><a href="/shop/byPrice?pageNum=1&condition=150.00 and 200.00">￥150.00 - ￥200.00</a></li>
+                                    <li><a href="/shop/byPrice?pageNum=1&condition=200.00 and 250.00">￥200.00 - ￥250.00</a></li>
+                                    <li><a href="/shop/byPrice?pageNum=1&condition=250.00 and 500.00">￥250.00 - ￥300.00+</a></li>
                                 </ul>
                             </div>
                         </div>
                         <!--  End Single Filter Item -->
 
                         <!--  Start Single Filter Item -->
-                        <div class="single-filter-item-wrap">
-                            <h3 class="filter-item-title">Categories</h3>
-                            <div class="filter-item-body">
-                                <ul class="filter-item-list">
-                                    <li><a href="#">Accessories</a></li>
-                                    <li><a href="#">Brands</a></li>
-                                    <li><a href="#">Clothing</a></li>
-                                    <li><a href="#">Gift</a></li>
-                                    <li><a href="#">Kids</a></li>
-                                </ul>
-                            </div>
-                        </div>
                         <!--  End Single Filter Item -->
 
                         <!--  Start Single Filter Item -->
@@ -192,11 +161,11 @@
                             <h3 class="filter-item-title">By color</h3>
                             <div class="filter-item-body">
                                 <ul class="filter-item-list color-filter">
-                                    <li class="black"><a href="#">Black</a></li>
-                                    <li class="blue"><a href="#">Blue</a></li>
-                                    <li class="pink"><a href="#">Pink</a></li>
-                                    <li class="violet"><a href="#">violet</a></li>
-                                    <li class="orange"><a href="#">Orange</a></li>
+                                    <li class="black"><a href="/shop/byColor?pageNum=1&color=black">Black</a></li>
+                                    <li class="blue"><a href="/shop/byColor?pageNum=1&color=blue">Blue</a></li>
+                                    <li class="pink"><a href="/shop/byColor?pageNum=1&color=pink">Pink</a></li>
+                                    <li class="white"><a href="/shop/byColor?pageNum=1&color=white">White</a></li>
+                                    <li class="orange"><a href="/shop/byColor?pageNum=1&color=yellow">Orange</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -207,11 +176,11 @@
                             <h3 class="filter-item-title">By size</h3>
                             <div class="filter-item-body">
                                 <ul class="filter-item-list spurs-checkbox">
-                                    <li><a href="#" class="active">S</a></li>
-                                    <li><a href="#">M</a></li>
-                                    <li><a href="#">L</a></li>
-                                    <li><a href="#">XL</a></li>
-                                    <li><a href="#">XXL</a></li>
+                                    <li><a href="/shop/bySize?pageNum=1&size=S" class="active">S</a></li>
+                                    <li><a href="/shop/bySize?pageNum=1&size=M">M</a></li>
+                                    <li><a href="/shop/bySize?pageNum=1&size=L">L</a></li>
+                                    <li><a href="/shop/bySize?pageNum=1&size=XL">XL</a></li>
+                                    <li><a href="/shop/bySize?pageNum=1&size=XXL">XXL</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -230,7 +199,7 @@
                                 <div class="single-product-wrap" >
                                     <!-- Product Thumbnail -->
                                     <figure class="product-thumbnail">
-                                        <a class="d-block">
+                                        <a th:href="@{'/shop/singleProduct?clothesId='+${clothes.id}}" class="d-block">
                                             <img class="primary-thumb" th:src="@{'/assets/img/products/'+${clothes.picAddress1+'.jpg'}}"
                                                  alt="Product"/>
                                             <img class="secondary-thumb" th:src="@{'/assets/img/products/'+${clothes.picAddress2+'.jpg'}}"
@@ -244,11 +213,10 @@
                                                         class="dl-icon-view" th:attr="data-name=${clothes.name},data-picAddress1=${clothes.picAddress1},
                                                         data-picAddress2=${clothes.picAddress2},data-oldPrice=${clothes.oldPrice},
                                                         data-newPrice=${clothes.newPrice}" onclick="showPic(this)"></i></button></a>
-                                                <a href="wishlist.html" data-toggle="tooltip" data-placement="top"
-                                                   title="Add to Wishlist"><i class="dl-icon-heart4"></i></a>
-                                                <a th:href="@{'/commerce/addCompare?clothesId='+${clothes.id}}" data-toggle="tooltip" data-placement="top"
-                                                   title="Add to Compare"><i
-                                                        class="dl-icon-compare"></i></a>
+
+                                                <a data-toggle="tooltip" data-placement="top"
+                                                   title="Add to Compare"><i th:attr="data-clothesId=${clothes.id}"
+                                                        class="dl-icon-compare" onclick="addCompare(this)"></i></a>
                                             </div>
                                             <span class="product-badge sale">-20%</span>
                                         </figcaption>
@@ -270,10 +238,8 @@
                 <div class="page-pagination-wrapper mt-70 mt-md-50 mt-sm-40">
                     <nav class="page-pagination">
                         <ul class="pagination justify-content-center">
-                            <li><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
                             <li><a href="/shop/fullWide?pageNum=1" class="active">1</a></li>
                             <li><a href="/shop/fullWide?pageNum=2" class="active">2</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -421,39 +387,6 @@
 <!--== End Search box Wrapper ==-->
 
 <!--== Start Mini Cart Wrapper ==-->
-<div class="mfp-hide modal-minicart" id="miniCart-popup">
-    <div class="minicart-content-wrap">
-        <h2>Shopping MimiCart</h2>
-        <div class="minicart-product-list">
-            <!-- Start Single Product -->
-            <div class="single-product-item d-flex" th:each="c:${cl}">
-                <figure class="product-thumb">
-                    <a href="#"><img th:src="@{'/assets/img/products/'+${c.picAddress1+'.jpg'}}" alt="Product"></a>
-                </figure>
-                <div class="product-details">
-                    <h2 class="product-title"><a href="single-product.html" th:text="${c.name}"></a></h2>
-                    <div class="prod-cal d-flex align-items-center">
-                        <span class="price" th:text="${c.newPrice}"></span>
-                        <span class="multiplication">&#215;</span>
-                        <span class="quantity" th:text="${c.amount}"></span>
-
-                    </div>
-                </div>
-                <a href="#" class="remove-icon">&#215;</a>
-            </div>
-        </div>
-        <!-- End Single Product -->
-        <div class="minicart-calculation-wrap d-flex justify-content-between align-items-center">
-            <span class="cal-title">Subtotal:</span>
-            <span class="cal-amount" id="span1"></span>
-        </div>
-        <div class="minicart-btn-group mt-38">
-            <a href="/commerce/cart" class="btn btn-black ">View Cart</a>
-            <a href="/commerce/checkOut" class="btn btn-black mt-10">checkout</a>
-        </div>
-    </div>
-</div>
-<!--== End Mini Cart Wrapper ==-->
 
 <!--== Start Left Offside Menu Wrapper ==-->
 <div class="mfp-hide modalLeftOffside" id="left-offside-popup">
@@ -534,18 +467,6 @@
                                     adipisicing
                                     elit. Ab dolorem eum labore minima possimus quaerat quod recusandae repellat sequi
                                     ut.</p>
-
-                                <div class="quantity-btn-group d-flex">
-
-                                    <div class="list-btn-group">
-                                        <a href="cart.html" class="btn btn-black">Add to Cart</a>
-                                        <a href="wishlist.html" data-toggle="tooltip" data-placement="top"
-                                           title="Add to wishlist"><i class="dl-icon-heart2"></i></a>
-                                        <a href="compare.html" data-toggle="tooltip" data-placement="top"
-                                           title="Add to Compare"><i class="dl-icon-compare2"></i></a>
-                                    </div>
-                                </div>
-
                                 <div class="find-store-delivery">
                                     <a href="#"><i class="fa fa-map-marker"></i> Find store near you</a>
                                     <a href="#"><i class="fa fa-exchange"></i> Delivery and return</a>
@@ -608,8 +529,29 @@
             $("h2[name='proName']").html(name);
             $("del[name='oldPrice']").html(oldPrice);
             $("span[name='newPrice']").html(newPrice);
-
         }
+    function addCompare(e) {
+        var id=$(e).attr("data-clothesId");
+        var jsonData={
+            id:parseInt(id),
+        }
+        $.ajax({
+            url:'/commerce/addCompare',
+            dataType:'text',
+            contentType:'application/json;charset=utf-8',
+            method:'post',
+            data:JSON.stringify(jsonData),
+            success:function (msg) {
+                alert(msg);
+                if(msg=="请先登录"){
+                    location.href='/user/myCount';
+                }
+            },
+            error:function (resp) {
+                alert("error...");
+            }
+        })
+    }
 </script>
 </body>
 </html>

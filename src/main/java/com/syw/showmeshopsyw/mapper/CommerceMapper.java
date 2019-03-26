@@ -17,9 +17,12 @@ public interface CommerceMapper {
     @Insert("insert into compare(clothes_id,user_id)values(#{clothesId},#{userId})")
     public void addCompare(@Param("clothesId") Integer clothesId,@Param("userId") Integer userId);
 
-    @Select("select name,picAddress1,newPrice,color,rating from compare a,clothes b " +
+    @Select("select b.id, name,picAddress1,newPrice,color,rating from compare a,clothes b " +
             "where a.clothes_id=b.id and a.user_id=#{userId}")
     public List<Clothes> showCompare(Integer userId);
+
+    @Delete("delete from compare where clothes_id=#{id}")
+    public void delCompare(Integer id);
 
     @Delete("delete from cart where id=#{cartId}")
     public void delCart(Integer cartId);
@@ -54,6 +57,7 @@ public interface CommerceMapper {
     @Select("select b.id, name,picAddress1,newPrice,amount,subtotal from order1 a,clothes b " +
             "where a.clothes_id=b.id and a.user_id=#{userId}")
     public List<Clothes> completeOrder(Integer userId);
+
     @Select("select * from user_info where user_id=#{userId}")
     public UserInfo userInfo(Integer userId);
 

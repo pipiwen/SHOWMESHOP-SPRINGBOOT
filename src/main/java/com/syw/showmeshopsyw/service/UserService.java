@@ -6,6 +6,9 @@ import com.syw.showmeshopsyw.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
+
 @Service
 public class UserService {
     @Autowired
@@ -25,7 +28,12 @@ public class UserService {
     public User get(Integer id){
         return userMapper.get(id);
     }
-    public void register(User user){
-        userMapper.register(user);
+
+    public void register(Map<String,Object> jsonData){
+        userMapper.register(jsonData);
+    }
+
+    public List<User>findAllUser(){
+        return userMapper.findAllUser();
     }
 }

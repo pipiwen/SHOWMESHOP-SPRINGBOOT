@@ -27,6 +27,9 @@ public class CommerceService {
     public List<Clothes> showCompare(Integer userId){
         return commerceMapper.showCompare(userId);
     }
+    public void delCompare(Integer id){
+        commerceMapper.delCompare(id);
+    }
     public void delCart(Integer cartId){
         commerceMapper.delCart(cartId);
     }

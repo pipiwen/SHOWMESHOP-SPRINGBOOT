@@ -65,13 +65,24 @@ public class CommerceController {
     }
 
     @RequestMapping("addCompare")
-    public String addCompare(Integer clothesId){
+    @ResponseBody
+    public String addCompare(@RequestBody Map<String,Object>jsonData){
+        Integer clothesId=(Integer)jsonData.get("id");
         if(UserUtil.getCurrentUser().getUsername()==null){
-            return "my-account";
+            return "请先登录";
         }else if(clothesId!=null){
             commerceService.addCompare(clothesId,UserUtil.getCurrentUser().getId());
         }
-        return "compare";
+        return "添加成功";
+    }
+    @RequestMapping("delCompare")
+    @ResponseBody
+    public String delCompare(@RequestBody Integer id){
+        if(id !=null){
+            commerceService.delCompare(id);
+            return "删除成功！";
+        }
+        return "删除失败！";
     }
     @RequestMapping("compare")
     public String compare(Model model){
@@ -79,6 +90,7 @@ public class CommerceController {
         model.addAttribute("clothesCompare",list);
         return "compare";
     }
+
     @RequestMapping("operateOrder")
     @ResponseBody
     public String operateOrder(@RequestBody Map<String,Object> jsonData){
