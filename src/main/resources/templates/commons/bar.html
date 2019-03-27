@@ -27,11 +27,13 @@
                         <!-- Start Main Menu -->
                         <nav id="mainmenu-wrap">
                             <ul class="nav mainmenu justify-content-center">
-                                <li class="dropdown-show"><a class="current" href="/clothes/index">Home</a>
+                                <li class="dropdown-show"><a class="current" href="/clothes/index"
+                                                             th:class="${activeUri=='index'?'current':''}">Home</a>
                                 </li>
                                 <li class="dropdown-show"><a href="/pages/coming">Pages</a>
                                 </li>
-                                <li class="dropdown-show mega-fullwidth"><a href="/shop/fullWide?pageNum=1">Shop</a>
+                                <li class="dropdown-show mega-fullwidth"><a class="" href="/shop/fullWide?pageNum=1"
+                                                                            th:class="${activeUri=='fullWide'?'current':''}">Shop</a>
                                     <ul class="mega-menu-wrap dropdown-nav d-flex">
                                         <li class="mega-menu-item"><a href="/shop/fullWide" class="mega-item-title">Shop Pages</a>
                                             <ul>
@@ -54,9 +56,11 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="dropdown-show"><a href="/shop/collection">Collection</a>
+                                <li class="dropdown-show"><a class="" href="/shop/collection"
+                                                             th:class="${activeUri=='collection'?'current':''}">Collection</a>
                                 </li>
-                                <li><a href="/blog/contact">Contact</a></li>
+                                <li><a class="" href="/blog/contact"
+                                       th:class="${activeUri=='contact'?'current':''}">Contact</a></li>
                             </ul>
                         </nav>
                         <!-- End Main Menu -->
