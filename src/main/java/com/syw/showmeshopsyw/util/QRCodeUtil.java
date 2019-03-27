@@ -70,7 +70,7 @@ public class QRCodeUtil {
      */
     public static BufferedImage getBufferedImage(String content, Integer size, String logoPath) {
         if (size == null || size <= 0) {
-            size = 250;
+            size = 200;
         }
         BufferedImage image = null;
         try {

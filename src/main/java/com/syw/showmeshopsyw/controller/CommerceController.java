@@ -113,7 +113,7 @@ public class CommerceController {
     public String payFor(String price,Model model){
         model.addAttribute("price",price);
         QRCodeUtil.zxingCodeCreate(price,"D:/uploads/",
-                250,"D:/uploads/zhi.jpg");
+                200,"D:/uploads/zhi.jpg");
         return "pay-for";
     }
 

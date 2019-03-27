@@ -17,8 +17,8 @@ public class ShowmeshopSywApplicationTests {
 
     @Test
     public void test1()throws Exception{
-        QRCodeUtil.zxingCodeCreate("2555","D:/uploads/",
-                250,"D:/uploads/zhi.jpg");
+        QRCodeUtil.zxingCodeCreate("2550","D:/uploads/",
+                200,"D:/uploads/zhi.jpg");
     }
    /* @Test
     public void test2()throws Exception{
