@@ -1,0 +1,44 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><!--//导入thymeleaf命名空间-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Dashboard Template · Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet"  crossorigin="anonymous">
+
+    <link th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+</head>
+<body>
+<div th:replace="commons/bar1 :: topbar"></div><!--引入头部bar-->
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="commons/bar1 :: sidebar(activeUri='main')"></div><!--引入侧边bar-->
+        <!--<div th:replace="~{commons/bar1::sidebar(activeUri='main')}"></div>&lt;!&ndash;引入侧边bar&ndash;&gt;-->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Dashboard</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                    </div>
+                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                        <span data-feather="calendar"></span>
+                        This week
+                    </button>
+                </div>
+            </div>
+            <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1522" height="642" style="display: block; height: 514px; width: 1218px;"></canvas>
+        </main>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="asserts/js/jquery-slim.min.js"><\/script>')</script><script th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.bundle.js}" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script th:src="@{/asserts/js/dashboard.js}"></script></body>
+</html>
