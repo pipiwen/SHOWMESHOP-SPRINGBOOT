@@ -1,4 +1,4 @@
-﻿<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">-
+﻿<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -200,9 +200,9 @@
                                     <!-- Product Thumbnail -->
                                     <figure class="product-thumbnail">
                                         <a th:href="@{'/shop/singleProduct?clothesId='+${clothes.id}}" class="d-block">
-                                            <img class="primary-thumb" th:src="@{'/assets/img/products/'+${clothes.picAddress1+'.jpg'}}"
+                                            <img class="primary-thumb" th:src="@{'http://syw.husky007.top/'+${clothes.picAddress1+'.jpg'}}"
                                                  alt="Product"/>
-                                            <img class="secondary-thumb" th:src="@{'/assets/img/products/'+${clothes.picAddress2+'.jpg'}}"
+                                            <img class="secondary-thumb" th:src="@{'http://syw.husky007.top/'+${clothes.picAddress2+'.jpg'}}"
                                                  alt="Product"/>
                                         </a>
                                         <figcaption class="product-hvr-content">

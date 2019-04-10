@@ -1,0 +1,76 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><!--//导入thymeleaf命名空间-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Dashboard Template · Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet"  crossorigin="anonymous">
+
+    <link th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+</head>
+<body>
+<!--引入抽取的nav-->
+<div th:replace="commons/bar1 :: topbar"></div><!--引入头部bar-->
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="commons/bar1 :: sidebar(activeUri='products')"></div><!--引入侧边bar-->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <h2>Section title</h2>
+            <form th:action="@{/admin/clothesAddEdit}" method="post" enctype="multipart/form-data">
+                <!--restful发送put请求 以input形式发送put请求-->
+                <input type="hidden" name="_method" value="put" th:if="${c!=null}" />
+                <input type="hidden" name="id" th:value="${c.id}" th:if="${c!=null}" />
+                <div class="form-group">
+                    <label>name</label>
+                    <input type="text" name="name" class="form-control" placeholder="name" th:value="${c!=null}?${c.name}">
+                </div>
+                <div class="form-group">
+                    <label>color</label>
+                    <input type="text" name="color" class="form-control" placeholder="color" th:value="${c!=null}?${c.color}">
+                </div>
+                <div class="form-group">
+                    <label>size</label>
+                    <input type="text" name="size" class="form-control" placeholder="size" th:value="${c!=null}?${c.size}">
+                </div>
+                <div class="form-group">
+                    <label >sex</label>
+                    <select class="form-control" name="sex">
+                        <option value="0" selected>女</option>
+                        <option value="1" selected>男</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>oldprice</label>
+                    <input type="text" name="oldPrice" class="form-control" placeholder="oldprice" th:value="${c!=null}?${c.oldPrice}">
+                </div>
+                <div class="form-group">
+                    <label>newprice</label>
+                    <input type="text" name="newPrice" class="form-control" placeholder="newprice" th:value="${c!=null}?${c.newPrice}">
+                </div>
+                <div class="form-group">
+                    <label>rating</label>
+                    <input type="text" name="rating" class="form-control" placeholder="rating" th:value="${c!=null}?${c.rating}">
+                </div>
+                <div class="input-group col-md-4">
+                    <label>请选择图片1</label>
+                <input type="file" name="file1"/>
+                </div>
+                <div class="input-group col-md-4">
+                    <label>请选择图片2</label>
+                    <input type="file" name="file2"/>
+                </div>
+                <button type="submit" class="btn btn-primary" th:text="${c!=null}?'修改':'添加'"></button>
+            </form>
+        </main>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="asserts/js/jquery-slim.min.js"><\/script>')</script><script th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.bundle.js}" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script th:src="@{/asserts/js/dashboard.js}"></script></body>
+</html>

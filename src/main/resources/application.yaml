@@ -27,3 +27,8 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     useGlobalDataSourceStat: true
+#七牛配置
+qiniu:
+  AccessKey: T2p0exKwyYjbxlO1g1D0uI1sf8N8gfbC_KPIbq2R
+  SecretKey: CkTFYoVgCSyCsCzovYm2URrF6LihzfEO4GD5kYAC
+  Bucket: photo

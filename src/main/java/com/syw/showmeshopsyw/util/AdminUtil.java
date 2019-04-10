@@ -20,8 +20,8 @@ public class AdminUtil {
             getSession().setAttribute(adminSession,current);
         }
     }
-    public static User getCurrentUser(){
-        return (User) getSession().getAttribute(adminSession);
+    public static Admin getCurrentUser(){
+        return (Admin) getSession().getAttribute(adminSession);
 
     }
 }

@@ -20,7 +20,7 @@
         <div th:replace="commons/bar1 :: sidebar(activeUri='products')"></div><!--引入侧边bar-->
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <h2>Section title</h2>
-            <h2><a class="btn btn-sm btn-success" th:href="@{/admin/userForm}">服装添加</a></h2>
+            <h2><a class="btn btn-sm btn-success" th:href="@{/admin/cForm}">服装添加</a></h2>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
@@ -47,7 +47,7 @@
                         <td th:text="${c.newPrice}"></td>
                         <td th:text="${c.rating}"></td>
                         <td >
-                            <a class="btn btn-sm btn-primary" th:href="@{/admin/edit/}+${c.id}">编辑</a>
+                            <a class="btn btn-sm btn-primary" th:href="@{/admin/editClothes/}+${c.id}">编辑</a>
                             <button th:attr="del_uri=@{/admin/delete/}+${c.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
                         </td>
                     </tr>

@@ -10,14 +10,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ShowmeshopSywApplicationTests {
-
-    @Test
-    public void contextLoads() {
-    }
-
     @Test
     public void test1()throws Exception{
-        QRCodeUtil.zxingCodeCreate("2550","D:/uploads/",
+        QRCodeUtil.zxingCodeCreate("111","D:/uploads/",
                 200,"D:/uploads/zhi.jpg");
     }
    /* @Test

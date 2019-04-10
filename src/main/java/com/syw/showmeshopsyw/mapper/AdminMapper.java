@@ -29,4 +29,15 @@ public interface AdminMapper {
 
     @Select("select * from clothes")
     public List<Clothes> findAllColthes();
+
+    @Insert("insert into clothes(name,color,size,sex,picaddress1,picaddress2,oldprice,newprice,rating)values(#{name},#{color}," +
+            "#{size},#{sex},#{picAddress1},#{picAddress2},#{oldPrice},#{newPrice},#{rating})")
+    public void addClothes(Clothes clothes);
+
+    @Select("select * from clothes where id=#{id}")
+    public Clothes getClothesById(Integer id);
+
+    @Update("update clothes set name=#{name},color=#{color},size=#{size},sex=#{sex}," +
+            "oldprice=#{oldprice},newprice=#{newprice},rating=#{rating}")
+    public void editClothes(Clothes clothes);
 }

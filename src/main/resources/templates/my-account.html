@@ -316,29 +316,29 @@
 <script src="/assets/js/revslider/extensions/revolution.extension.video.min.js"></script>
 <script src="/assets/js/revslider/revslider-active.js"></script>
 <script th:inline="javascript" type="text/javascript">
-    function register() {
-        var username=$("#reg_username").val();
-        var password=$("#reg_pwsd").val()
-        var jsonData={
-            username:username,
-            password:password
-        }
-        $.ajax({
-            url:'/user/register',
-            dataType:'text',
-            contentType:'application/json;charset=utf-8',
-            method:'post',
-            data:JSON.stringify(jsonData),
-            success:function (msg) {
-                $("#reg_username").val('');
-                $("#reg_pwsd").val('');
-                alert(msg);
-            },
-            error:function (resp) {
-                alert("error...");
+        function register() {
+            var username=$("#reg_username").val();
+            var password=$("#reg_pwsd").val()
+            var jsonData={
+                username:username,
+                password:password
             }
-        })
-    }
+            $.ajax({
+                url:'/user/register',
+                dataType:'text',
+                contentType:'application/json;charset=utf-8',
+                method:'post',
+                data:JSON.stringify(jsonData),
+                success:function (msg) {
+                    $("#reg_username").val('');
+                    $("#reg_pwsd").val('');
+                    alert(msg);
+                },
+                error:function (resp) {
+                    alert("error...");
+                }
+            })
+        }
 </script>
 </body>
 </html>

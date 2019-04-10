@@ -37,4 +37,13 @@ public class AdminService {
     public List<Clothes> findAllClothes(){
         return adminMapper.findAllColthes();
     }
+    public void addClothes(Clothes clothes){
+        adminMapper.addClothes(clothes);
+    }
+    public Clothes getClothesByid(Integer id){
+        return adminMapper.getClothesById(id);
+    }
+    public void editClothes(Clothes clothes){
+        adminMapper.editClothes(clothes);
+    }
 }
