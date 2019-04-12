@@ -13,6 +13,7 @@ public class ClothesController {
         if(UserUtil.getCurrentUser()==null) {
             UserUtil.setCurrentUser(new User());
         }
+
         return "index";
     }
 }

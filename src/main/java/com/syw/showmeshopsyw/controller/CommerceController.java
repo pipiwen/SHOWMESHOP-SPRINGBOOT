@@ -1,4 +1,5 @@
 package com.syw.showmeshopsyw.controller;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.syw.showmeshopsyw.entity.City;
 import com.syw.showmeshopsyw.entity.Clothes;
 import com.syw.showmeshopsyw.service.CommerceService;
@@ -97,7 +98,7 @@ public class CommerceController {
         Integer userId=UserUtil.getCurrentUser().getId();
         jsonData.put("userId",userId);
         if(userId!=null) {
-            commerceService.toOrder(jsonData);
+            commerceService.toUserInfo(jsonData);
         }
         return "success";
     }
@@ -117,11 +118,21 @@ public class CommerceController {
         return "pay-for";
     }
 
+    @RequestMapping("showOrder")
+    public String showOrder(Model model){
+        model.addAttribute("province",commerceService.findAllProvince());
+        model.addAttribute("orderList",commerceService.showOrder(UserUtil.getCurrentUser().getId()));
+        return "checkout";
+    }
+
     @RequestMapping("checkOut")
     public String checkOut(Model model){
+        Integer userId=UserUtil.getCurrentUser().getId();
         model.addAttribute("province",commerceService.findAllProvince());
-        if(UserUtil.getCurrentUser().getUsername()!=null){
-           model.addAttribute("orderList",commerceService.showOrder(UserUtil.getCurrentUser().getId()));
+        if(userId!=null){
+            commerceService.toOrder(userId);
+           model.addAttribute("orderList",commerceService.showOrder(userId));
+
         }
         return "checkout";
     }

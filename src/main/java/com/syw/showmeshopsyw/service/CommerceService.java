@@ -39,6 +39,7 @@ public class CommerceService {
     public List<City>findCityByProvince(String pno){
         return commerceMapper.findCityByProvince(pno);
     }
+
     public void modifyAmount(Map<String,Object> jsonData){
         commerceMapper.modifyAmount(jsonData);
     }
@@ -47,13 +48,15 @@ public class CommerceService {
     }
 
     @Transactional
-    public void toOrder(Map<String,Object>jsonData){
-        Integer userId=(Integer) jsonData.get("userId");
+    public void toOrder(Integer userId){
         List<Cart>cartList= commerceMapper.findCart(userId);
         for(int i=0;i<cartList.size();i++){
             commerceMapper.toOrder(cartList.get(i));
         }
         commerceMapper.delCartByUserId(userId);
+    }
+
+    public void toUserInfo(Map<String,Object>jsonData){
         commerceMapper.addUserInfo(jsonData);
     }
     public List<Clothes> completeOrder(Integer userId){

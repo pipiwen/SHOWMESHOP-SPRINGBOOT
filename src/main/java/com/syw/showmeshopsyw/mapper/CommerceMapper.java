@@ -36,7 +36,7 @@ public interface CommerceMapper {
     @Update("update cart set amount=#{amount},subtotal=#{subtotal} where id=#{id}")
     public void modifyAmount(Map<String,Object> jsonData);
 
-    @Select("select b.id, name,picAddress1,newPrice,amount,subtotal from cart a,clothes b " +
+    @Select("select b.id, name,picAddress1,newPrice,amount,subtotal from order1 a,clothes b " +
             "where a.clothes_id=b.id and a.user_id=#{userId}")
     public List<Clothes> showOrder(Integer userId);
 
