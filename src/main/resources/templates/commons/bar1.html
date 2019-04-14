@@ -54,7 +54,8 @@
         </h6>
         <ul class="nav flex-column mb-2">
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/admin/orderList}">
+                <a class="nav-link" th:href="@{/admin/orderList}"
+                   th:class="${activeUri=='orders'?'nav-link active':'nav-link'}">
                     <span data-feather="file-text"></span>
                     Order Manager
                 </a>
