@@ -106,10 +106,12 @@ public class CommerceController {
     @RequestMapping("tracking")
     public String tracking(Model model){
         Integer userId=UserUtil.getCurrentUser().getId();
+        commerceService.operateOrder(userId);
         model.addAttribute("orderList",commerceService.completeOrder(UserUtil.getCurrentUser().getId()));
         model.addAttribute("userInfo",commerceService.userInfo(userId));
         return "tracking-order";
     }
+
     @RequestMapping("payFor")
     public String payFor(String price,Model model){
         model.addAttribute("price",price);

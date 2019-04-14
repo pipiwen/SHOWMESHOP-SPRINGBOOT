@@ -2,6 +2,7 @@ package com.syw.showmeshopsyw.mapper;
 
 import com.syw.showmeshopsyw.entity.Admin;
 import com.syw.showmeshopsyw.entity.Clothes;
+import com.syw.showmeshopsyw.entity.Order;
 import com.syw.showmeshopsyw.entity.User;
 import org.apache.ibatis.annotations.*;
 
@@ -40,4 +41,16 @@ public interface AdminMapper {
     @Update("update clothes set name=#{name},color=#{color},size=#{size},sex=#{sex}," +
             "oldprice=#{oldprice},newprice=#{newprice},rating=#{rating}")
     public void editClothes(Clothes clothes);
+
+    @Select("select a.user_id id, b.username,SUM(subtotal) total,del_flag from order1 a,t_user b  " +
+            "WHERE a.user_id=b.id group by user_id,del_flag")
+    public List<Order> findAllOrder();
+
+    @Select("select b.id, name,amount,subtotal from order1 a,clothes b " +
+            "where a.clothes_id=b.id and a.user_id=#{userId} and a.del_flag=#{del_flag}")
+    public List<Clothes> findClothesByUserId(@Param("userId") Integer userId,
+                                             @Param("del_flag")Integer del_flag);
+
+    @Delete("delete from order1 where user_id=#{userId} and del_flag=0")
+    public void delOrder(Integer userId);
 }

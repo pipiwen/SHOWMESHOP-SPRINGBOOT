@@ -43,8 +43,8 @@ public interface CommerceMapper {
     @Select("select clothes_id clothesId,amount,subtotal,user_id userId from cart where user_id=#{userId}")
     public List<Cart> findCart(Integer userId);
 
-    @Insert("insert into order1(clothes_id,amount,subtotal,user_id)values(#{clothesId}," +
-            "#{amount},#{subtotal},#{userId})")
+    @Insert("insert into order1(clothes_id,amount,subtotal,user_id,del_flag)values(#{clothesId}," +
+            "#{amount},#{subtotal},#{userId},0)")
     public void toOrder(Cart cart);
 
     @Delete("delete from cart where user_id=#{userId}")
@@ -54,11 +54,13 @@ public interface CommerceMapper {
             "#{phone},#{address},#{ordernote},#{userId})")
     public void addUserInfo(Map<String,Object>jsonData);
 
+    @Update("update order1 set del_flag=1 where user_id=#{userId}")
+    public void operateOrder(Integer userId);
+
     @Select("select b.id, name,picAddress1,newPrice,amount,subtotal from order1 a,clothes b " +
-            "where a.clothes_id=b.id and a.user_id=#{userId}")
+            "where a.clothes_id=b.id and a.user_id=#{userId} and del_flag=1")
     public List<Clothes> completeOrder(Integer userId);
 
     @Select("select * from user_info where user_id=#{userId}")
     public UserInfo userInfo(Integer userId);
-
 }

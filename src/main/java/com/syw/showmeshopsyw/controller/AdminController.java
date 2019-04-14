@@ -6,6 +6,7 @@ import com.syw.showmeshopsyw.entity.User;
 import com.syw.showmeshopsyw.service.AdminService;
 import com.syw.showmeshopsyw.util.AdminUtil;
 import com.syw.showmeshopsyw.util.QnUpload;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -115,4 +116,23 @@ public class AdminController {
     public String cForm(){
         return "admin/clothesForm";
     }
+
+    @GetMapping("orderList")
+    public String orderList(Model model){
+        model.addAttribute("orderList",adminService.findAllOrder());
+        return "admin/orderList";
+    }
+
+    @GetMapping("orderFrom/{id}/{del_flag}")
+    public String orderFrom(@PathVariable("id")Integer userId,
+                            @PathVariable("del_flag")Integer del_flag,Model model){
+        model.addAttribute("clothesList",adminService.findClothesByUserId(userId,del_flag));
+        return "admin/oForm";
+    }
+    @RequestMapping("deleteOrder")
+    public String delOrder(Integer userId){
+        adminService.delOrder(userId);
+        return "redirect:/admin/orderList";
+    }
+
 }

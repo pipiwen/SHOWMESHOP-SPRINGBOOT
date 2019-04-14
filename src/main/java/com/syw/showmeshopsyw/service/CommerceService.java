@@ -6,8 +6,6 @@ import com.syw.showmeshopsyw.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
-
 import java.util.List;
 import java.util.Map;
 
@@ -56,6 +54,9 @@ public class CommerceService {
         commerceMapper.delCartByUserId(userId);
     }
 
+    public void operateOrder(Integer userId){
+        commerceMapper.operateOrder(userId);
+    }
     public void toUserInfo(Map<String,Object>jsonData){
         commerceMapper.addUserInfo(jsonData);
     }

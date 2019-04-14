@@ -2,6 +2,7 @@ package com.syw.showmeshopsyw.service;
 
 import com.syw.showmeshopsyw.entity.Admin;
 import com.syw.showmeshopsyw.entity.Clothes;
+import com.syw.showmeshopsyw.entity.Order;
 import com.syw.showmeshopsyw.entity.User;
 import com.syw.showmeshopsyw.mapper.AdminMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,14 @@ public class AdminService {
     }
     public void editClothes(Clothes clothes){
         adminMapper.editClothes(clothes);
+    }
+    public List<Order>findAllOrder(){
+        return adminMapper.findAllOrder();
+    }
+    public List<Clothes> findClothesByUserId(Integer userId,Integer del_flag){
+        return adminMapper.findClothesByUserId(userId,del_flag);
+    }
+    public void delOrder(Integer userId){
+        adminMapper.delOrder(userId);
     }
 }
